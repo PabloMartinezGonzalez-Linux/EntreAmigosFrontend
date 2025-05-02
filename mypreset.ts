@@ -8,7 +8,7 @@ const MyPreset = definePreset(Aura, {
       100: '{orange.100}',
       200: '{orange.200}',
       300: '{orange.300}',
-      400: '{orange.400}',
+      400: '{orange.600}',
       500: '{orange.500}',
       600: '{orange.600}',
       700: '{orange.700}',

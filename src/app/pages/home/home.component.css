@@ -4,10 +4,15 @@
 
 .home{
   background-image: url('../../../../public/home/background.jpg');
+  background-size: cover;
 }
 
 .graduate-regular {
   font-family: "Graduate", serif;
   font-weight: 400;
   font-style: normal;
+}
+
+.background{
+  background: linear-gradient(180deg,rgba(138, 138, 138, 1) 0%, rgba(0, 0, 0, 1) 100%);
 }

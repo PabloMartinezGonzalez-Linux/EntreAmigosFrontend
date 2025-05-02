@@ -2,7 +2,7 @@
   <!-- Menu -->
   <div #lqs class="relative w-30 flex flex-row">
     <div>
-      <p-menu #menu [model]="items" [popup]="true" appendTo="lqs" class="absolute left-0 mt-11" />
+      <p-tiered-menu #menu [model]="items" [popup]="true" appendTo="lqs" class="absolute left-0 mt-11" />
       <p-button class="p-button-accent" (click)="menu.toggle($event)" icon="pi pi-bars"/>
     </div>
     <img class="ml-4" src="logo\Logo.PNG" alt="Logo de la página web EntreAmigos">

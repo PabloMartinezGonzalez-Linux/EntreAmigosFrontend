@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { MenuItem } from 'primeng/api'
-import { MenuModule } from 'primeng/menu'
+import { TieredMenuModule } from 'primeng/tieredmenu'
 import { CommonModule } from '@angular/common';
 import { ImportsModule } from '../../../../shared/imports';
 
@@ -13,6 +13,7 @@ import { ImportsModule } from '../../../../shared/imports';
     RouterLinkActive,
     CommonModule,
     ImportsModule,
+    TieredMenuModule
   ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
@@ -24,15 +25,63 @@ export class NavbarComponent implements OnInit{
   ngOnInit() {
     this.items = [
       {
-        label: 'Options',
+        icon: 'pi pi-list',
+        label: 'Eventos',
         items: [
           {
-            label: 'Refresh',
-            icon: 'pi pi-refresh'
+            icon: 'pi pi-plus',
+            label: 'Karting',
+            items: [
+              {
+                icon:'pi pi-bars',
+                label: 'Eventos',
+              },
+              {
+                icon:'pi pi-calendar-clock',
+                label: 'Próximo Evento',
+              },
+              {
+                icon:'pi pi-crown',
+                label: 'Clasificación',
+
+              }
+            ]
           },
           {
-            label: 'Export',
-            icon: 'pi pi-upload'
+            icon: 'pi pi-plus',
+            label: 'Bolos',
+            items: [
+              {
+                icon:'pi pi-bars',
+                label: 'Eventos',
+              },
+              {
+                icon:'pi pi-calendar-clock',
+                label: 'Próximo Evento',
+              },
+              {
+                icon:'pi pi-crown',
+                label: 'Clasificación',
+              }
+            ]
+          },
+          {
+            icon: 'pi pi-plus',
+            label: 'Pádel',
+            items: [
+              {
+                icon:'pi pi-bars',
+                label: 'Eventos',
+              },
+              {
+                icon:'pi pi-calendar-clock',
+                label: 'Próximo Evento',
+              },
+              {
+                icon:'pi pi-crown',
+                label: 'Clasificación',
+              }
+            ]
           }
       ]
       }
