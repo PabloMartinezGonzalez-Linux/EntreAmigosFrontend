@@ -1,0 +1,13 @@
+:host {
+  display: block;
+}
+
+.home{
+  background-image: url('../../../../public/home/background.jpg');
+}
+
+.graduate-regular {
+  font-family: "Graduate", serif;
+  font-weight: 400;
+  font-style: normal;
+}

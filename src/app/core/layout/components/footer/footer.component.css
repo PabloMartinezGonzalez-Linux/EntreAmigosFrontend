@@ -1,0 +1,11 @@
+:host {
+  display: block;
+}
+
+.footer-home{
+  background: linear-gradient(0deg,rgba(255, 89, 0, 1) , rgba(0, 0, 0, 1));
+}
+
+.default{
+  background-color: black;
+}

@@ -1,0 +1,33 @@
+<nav class="bg-black text-white flex flex-row items-center justify-between px-4 py-3 fixed top-0 right-0 left-0 z-10">
+  <!-- Menu -->
+  <div #lqs class="relative w-30 flex flex-row">
+    <div>
+      <p-menu #menu [model]="items" [popup]="true" appendTo="lqs" class="absolute left-0 mt-11" />
+      <p-button class="p-button-accent" (click)="menu.toggle($event)" icon="pi pi-bars"/>
+    </div>
+    <img class="ml-4" src="logo\Logo.PNG" alt="Logo de la página web EntreAmigos">
+  </div>
+  <div>
+    <span class="graduate-regular mx-2">
+      <a
+        [routerLink]="['/']"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="hover:text-orange-600"
+        >
+          home
+        </a>
+    </span>
+    <span class="graduate-regular mx-2">
+      <a
+        [routerLink]="['auth/login']"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="hover:text-orange-600"
+        >
+          login
+        </a>
+    </span>
+    <!-- TODO: Nombre de perfil cuando esté logueado -->
+  </div>
+</nav>
