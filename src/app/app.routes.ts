@@ -19,6 +19,10 @@ export const routes: Routes = [
     loadChildren: () => import('./auth/auth.routes').then((m) => m.authRoutes)
   },
   {
+    path:'sports',
+    loadChildren: () => import('./pages/events/sports.routes').then((m) => m.sportsRoutes)
+  },
+  {
     path:'**',
     redirectTo: ''
   }

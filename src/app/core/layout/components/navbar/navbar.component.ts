@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { MenuItem } from 'primeng/api'
 import { TieredMenuModule } from 'primeng/tieredmenu'
 import { CommonModule } from '@angular/common';
@@ -22,25 +22,30 @@ import { ImportsModule } from '../../../../shared/imports';
 export class NavbarComponent implements OnInit{
   items: MenuItem[] | undefined;
 
+  constructor(private router: Router){}
+
   ngOnInit() {
     this.items = [
       {
         icon: 'pi pi-list',
-        label: 'Eventos',
+        label: 'Deportes',
         items: [
           {
             icon: 'pi pi-plus',
             label: 'Karting',
             items: [
               {
+                command: () => this.router.navigate(['/sports/karting/events']),
                 icon:'pi pi-bars',
                 label: 'Eventos',
               },
               {
+                command: () => this.router.navigate(['/sports/karting/next-event']),
                 icon:'pi pi-calendar-clock',
                 label: 'Próximo Evento',
               },
               {
+                command: () => this.router.navigate(['/sports/karting/classification']),
                 icon:'pi pi-crown',
                 label: 'Clasificación',
 
@@ -52,14 +57,17 @@ export class NavbarComponent implements OnInit{
             label: 'Bolos',
             items: [
               {
+                command: () => this.router.navigate(['/sports/bowling/events']),
                 icon:'pi pi-bars',
                 label: 'Eventos',
               },
               {
+                command: () => this.router.navigate(['/sports/bowling/next-event']),
                 icon:'pi pi-calendar-clock',
                 label: 'Próximo Evento',
               },
               {
+                command: () => this.router.navigate(['/sports/bowling/classification']),
                 icon:'pi pi-crown',
                 label: 'Clasificación',
               }
@@ -70,14 +78,17 @@ export class NavbarComponent implements OnInit{
             label: 'Pádel',
             items: [
               {
+                command: () => this.router.navigate(['/sports/padel/events']),
                 icon:'pi pi-bars',
                 label: 'Eventos',
               },
               {
+                command: () => this.router.navigate(['/sports/padel/next-event']),
                 icon:'pi pi-calendar-clock',
                 label: 'Próximo Evento',
               },
               {
+                command: () => this.router.navigate(['/sports/padel/classification']),
                 icon:'pi pi-crown',
                 label: 'Clasificación',
               }
