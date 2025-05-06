@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { TableConfig } from '../interfaces/table-config';
-import { ImportsModule } from '../imports';
+import { TableConfig } from '../../interfaces/table-config';
+import { ImportsModule } from '../../imports';
+import { TitleCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-standard-table',

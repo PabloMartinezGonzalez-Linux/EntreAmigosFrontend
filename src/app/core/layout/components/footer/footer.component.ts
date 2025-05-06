@@ -22,6 +22,15 @@ export class FooterComponent {
       case '/': {
         return "footer-home"
       }
+      case '/sports/padel/next-event': {
+        return "next-event"
+      }
+      case '/sports/karting/next-event': {
+        return "next-event"
+      }
+      case '/sports/bowling/next-event': {
+        return "next-event"
+      }
       default:{
         return "default"
       }

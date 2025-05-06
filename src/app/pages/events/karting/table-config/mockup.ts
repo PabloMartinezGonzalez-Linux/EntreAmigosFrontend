@@ -2,28 +2,28 @@ export const KartingData = [
   {
     id: "asdasd133",
     posicion: 1,
-    name: "pablo",
+    name: "Pablo",
     vueltaRapida: "1:23.23",
     tiempoMedio: "1:40.25"
   },
   {
     id: "asdasd133",
     posicion: 1,
-    name: "pablo",
+    name: "Pablo",
     vueltaRapida: "1:23.23",
     tiempoMedio: "1:40.25"
   },
   {
     id: "asdasd133",
     posicion: 1,
-    name: "pablo",
+    name: "Pablo",
     vueltaRapida: "1:23.23",
     tiempoMedio: "1:40.25"
   },
   {
     id: "asdasd133",
     posicion: 1,
-    name: "pablo",
+    name: "Pablo",
     vueltaRapida: "1:23.23",
     tiempoMedio: "1:40.25"
   },

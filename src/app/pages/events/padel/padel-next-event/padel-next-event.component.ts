@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-padel-next-event',
@@ -7,4 +7,5 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrl: './padel-next-event.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PadelNextEventComponent { }
+export class PadelNextEventComponent {
+}
