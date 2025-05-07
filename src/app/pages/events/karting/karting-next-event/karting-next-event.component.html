@@ -28,6 +28,16 @@
         ¡Inscríbete Ahora!
       </a>
     </div>
+    <div class="w-full flex items-center justify-center mt-10">
+      <p-galleria [value]="images()" [responsiveOptions]="responsiveOptions" [containerStyle]="{ 'max-width': '640px' }" [numVisible]="5">
+          <ng-template #item let-item>
+              <img [src]="item.itemImageSrc" style="width:100%" />
+          </ng-template>
+          <ng-template #thumbnail let-item>
+              <img [src]="item.thumbnailImageSrc" />
+          </ng-template>
+      </p-galleria>
+    </div>
   </div>
 </div>
 

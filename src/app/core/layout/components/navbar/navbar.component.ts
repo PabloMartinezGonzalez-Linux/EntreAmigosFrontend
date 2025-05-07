@@ -1,9 +1,10 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { MenuItem } from 'primeng/api'
 import { TieredMenuModule } from 'primeng/tieredmenu'
 import { CommonModule } from '@angular/common';
 import { ImportsModule } from '../../../../shared/imports';
+import { AuthService } from '../../../../auth/service/auth.service';
 
 
 @Component({
@@ -20,6 +21,9 @@ import { ImportsModule } from '../../../../shared/imports';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavbarComponent implements OnInit{
+
+  authService = inject(AuthService)
+
   items: MenuItem[] | undefined;
 
   constructor(private router: Router){}

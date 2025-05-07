@@ -1,16 +1,16 @@
-<div class="mx-20 my-10">
+<div class="mx-10 mb-10 bg-neutral-300">
   <p-table [value]="data" [tableStyle]="{ 'min-width': '50rem' }">
       <ng-template #header>
         <tr>
           @for (col of tableConfig.columns; track col.code) {
-            <td>{{ col.label }}</td>
+            <td class="text-black px-4 py-2">{{ col.label }}</td>
           }
         </tr>
       </ng-template>
       <ng-template #body let-row>
         <tr>
           @for (col of tableConfig.columns; track col.code) {
-            <td>{{ row[col.code] }}</td>
+            <td class="bg-neutral-500">{{ row[col.code] }}</td>
           }
         </tr>
       </ng-template>
