@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
+import { AuthGuard } from './auth/guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -16,11 +17,14 @@ export const routes: Routes = [
   },
   {
     path:'auth',
-    loadChildren: () => import('./auth/auth.routes').then((m) => m.authRoutes)
+    loadChildren: () => import('./auth/auth.routes').then((m) => m.authRoutes),
+    canMatch: [
+      AuthGuard
+    ]
   },
   {
     path:'sports',
-    loadChildren: () => import('./pages/events/sports.routes').then((m) => m.sportsRoutes)
+    loadChildren: () => import('./events/sports.routes').then((m) => m.sportsRoutes)
   },
   {
     path:'**',

@@ -1,7 +1,7 @@
 import { KartingConfig } from './../table-config/karting-config';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { KartingData } from '../table-config/mockup';
-import { StandardTableComponent } from '../../../../shared/components/standard-table/standard-table.component';
+import { StandardTableComponent } from '../../../shared/components/standard-table/standard-table.component';
 
 @Component({
   selector: 'app-karting-events',

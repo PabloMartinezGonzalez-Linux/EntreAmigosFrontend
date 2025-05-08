@@ -1,13 +1,16 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../service/auth.service';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-login',
   imports: [
     RouterLink,
-    ReactiveFormsModule  ],
+    ReactiveFormsModule
+  ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -18,6 +21,10 @@ export class LoginComponent {
   authService = inject(AuthService)
   // Inyeccion de dependencias FormBuilder
   private fb = inject(FormBuilder)
+  // Inyeccion de dependencia Router de angular
+  router = inject(Router)
+  // Signal para controlar el error de login
+  hasError = signal(false)
 
   /**
    * Formulario de logueo
@@ -61,12 +68,20 @@ export class LoginComponent {
   }
 
   /**
-   * Metodo que simula la peticion a la api y setea el signal de logueo a true
-   * TODO: Petición a la api para comprobar el user
+   * Metodo que hace la petición del user a la api
    */
+
   onSubmit(): void{
-    if ( this.myForm.value.name === "Pablo" && this.myForm.value.password === "123456" ) {
-      this.authService.changeLogin()
-    }
+    const { name = "", password = "" } = this.myForm.value
+    if (this.myForm.invalid) return
+    this.authService.login(name, password).subscribe((isAuthtenticated) => {
+      if (isAuthtenticated) {
+        this.router.navigateByUrl("/")
+        this.hasError.set(false)
+        return
+      }
+      this.hasError.set(true)
+    })
+
   }
 }

@@ -1,17 +1,17 @@
-import { ChangeDetectionStrategy, Component, model, OnInit } from '@angular/core';
-import { ImportsModule } from '../../../../shared/imports';
+import { ChangeDetectionStrategy, Component, model } from '@angular/core';
 import { PhotoService } from '../service/photoservice';
+import { ImportsModule } from '../../../shared/imports';
 
 @Component({
-  selector: 'app-bowling-next-event',
+  selector: 'app-karting-next-event',
   imports: [
     ImportsModule
   ],
-  templateUrl: './bowling-next-event.component.html',
-  styleUrl: './bowling-next-event.component.css',
+  templateUrl: './karting-next-event.component.html',
+  styleUrl: './karting-next-event.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BowlingNextEventComponent{
+export class KartingNextEventComponent {
   images = model<any[]>([]);
 
   responsiveOptions: any[] = [

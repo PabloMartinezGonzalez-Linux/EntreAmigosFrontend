@@ -18,26 +18,15 @@
           home
         </a>
     </span>
-    @if (!authService.isLog()) {
-      <span class="graduate-regular mx-2">
-        <a
-          [routerLink]="['auth/login']"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }"
-          class="hover:text-orange-600"
-        >
-          login
-        </a>
-      </span>
-    }
-    @if (authService.isLog()) {
-      <span class="graduate-regular mx-2">
-        <a
-          class="hover:text-orange-600 cursor-pointer"
-        >
-          pablo
-        </a>
-      </span>
-    }
+    <span class="graduate-regular mx-2">
+      <a
+        [routerLink]="['auth/login']"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="hover:text-orange-600"
+      >
+        login
+      </a>
+    </span>
   </div>
 </nav>

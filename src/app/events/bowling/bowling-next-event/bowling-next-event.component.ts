@@ -1,17 +1,18 @@
-import { PhotoService } from '../service/photoservice';
-import { ImportsModule } from './../../../../shared/imports';
-import { ChangeDetectionStrategy, Component, input, model } from '@angular/core';
+import { ChangeDetectionStrategy, Component, model, OnInit } from '@angular/core';
+import { PhotoService } from '../services/photoservice';
+import { ImportsModule } from '../../../shared/imports';
+
 
 @Component({
-  selector: 'app-padel-next-event',
+  selector: 'app-bowling-next-event',
   imports: [
     ImportsModule
   ],
-  templateUrl: './padel-next-event.component.html',
-  styleUrl: './padel-next-event.component.css',
+  templateUrl: './bowling-next-event.component.html',
+  styleUrl: './bowling-next-event.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PadelNextEventComponent {
+export class BowlingNextEventComponent{
   images = model<any[]>([]);
 
   responsiveOptions: any[] = [

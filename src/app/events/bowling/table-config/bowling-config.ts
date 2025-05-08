@@ -1,4 +1,4 @@
-import { TableConfig } from "../../../../shared/interfaces/table-config";
+import { TableConfig } from "../../../shared/interfaces/table-config";
 
 export const BowlingConfig: TableConfig = {
   columns: [

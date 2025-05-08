@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { bowlingData } from '../table-config/mockup';
 import { BowlingConfig } from '../table-config/bowling-config';
-import { StandardTableComponent } from '../../../../shared/components/standard-table/standard-table.component';
+import { StandardTableComponent } from '../../../shared/components/standard-table/standard-table.component';
 
 @Component({
   selector: 'app-bowling-events',
