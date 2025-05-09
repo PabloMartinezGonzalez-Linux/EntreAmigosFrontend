@@ -6,4 +6,5 @@ export interface TableColumn {
 
 export interface TableConfig {
   columns: TableColumn[],
+  isClassification?: boolean
 }

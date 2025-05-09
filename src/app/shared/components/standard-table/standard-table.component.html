@@ -8,9 +8,9 @@
         </tr>
       </ng-template>
       <ng-template #body let-row>
-        <tr>
-          @for (col of tableConfig.columns; track col.code) {
-            <td class="bg-neutral-500">{{ row[col.code] }}</td>
+        <tr [ngClass]=" isFirst(row, data) ">
+          @for (col of tableConfig.columns; track col.code; let isFirst = $first) {
+            <td>{{ row[col.code] }}</td>
           }
         </tr>
       </ng-template>

@@ -1,3 +1,11 @@
 :host {
   display: block;
 }
+
+.first{
+  background-color: aquamarine !important;
+}
+
+.standard{
+  background-color : rgb(0, 0, 0) !important;
+}

@@ -14,9 +14,9 @@
           type="text"
           class="bg-gray-300 text-lg text-gray-500 h-11 px-2"
         >
-        @if (isValidField("name") && myForm.get("name")?.touched) {
+        @if (validForm.isValidField(myForm, "name") && isSubmit()) {
           <span class="text-red-600">
-            {{ getFieldError("name") }}
+            {{ validForm.getFieldError(myForm, "name") }}
           </span>
         }
       </div>
@@ -30,9 +30,9 @@
           type="password"
           class="bg-gray-300 text-lg text-gray-500 h-11 px-2"
         >
-        @if (isValidField("password") && myForm.get("password")?.touched) {
+        @if (validForm.isValidField(myForm, "password") && isSubmit()) {
           <span class="text-red-600">
-            {{ getFieldError("password") }}
+            {{ validForm.getFieldError(myForm, "password") }}
           </span>
         }
       </div>

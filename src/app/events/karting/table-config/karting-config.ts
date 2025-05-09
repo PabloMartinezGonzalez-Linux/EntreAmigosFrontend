@@ -17,5 +17,6 @@ export const KartingConfigClassification: TableConfig = {
     {code: "equipo", label:"Equipo", type:"string"},
     {code: "gap", label:"Gap", type:"string"},
     {code: "mejorCircuito", label:"Mejor Circuito", type:"string"},
-  ]
+  ],
+  isClassification: true
 }

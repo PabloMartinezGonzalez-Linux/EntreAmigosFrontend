@@ -1,6 +1,6 @@
 export const KartingData = [
   {
-    id: "asdasd133",
+    id: "aaaaaaa",
     posicion: 1,
     name: "Pablo",
     vueltaRapida: "1:23.23",
@@ -59,7 +59,7 @@ export const KartingData = [
 
 export const KartingDataClassification = [
   {
-    id: "asdasd133",
+    id: "aaaaaaaa",
     posicion: 1,
     puntos: 23,
     name: "pablo",

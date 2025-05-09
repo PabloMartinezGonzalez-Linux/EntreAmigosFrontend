@@ -1,6 +1,7 @@
 import { computed, inject, Injectable, signal } from '@angular/core';
 import { User } from '../interfaces/user.interface';
 import { HttpClient } from '@angular/common/http';
+import { rxResource } from '@angular/core/rxjs-interop'
 import { AuthResponse } from '../interfaces/auth.response.interface';
 import { catchError, map, Observable, of, tap } from 'rxjs';
 
@@ -15,6 +16,10 @@ export class AuthService {
   private _token = signal<string | null>(null)
 
   private _http = inject(HttpClient)
+
+  checkStatusResource = rxResource({
+    loader: () => this.checkStatus()
+  })
 
   authStatus = computed<AuthStatus>(() => {
     if (this._authStatus() === "checking") return "checking"
@@ -33,7 +38,6 @@ export class AuthService {
       tap(res => {
         this._user.set(res.user)
         this._token.set(res.token)
-        // ?¿
         this._authStatus.set('authenticated')
         localStorage.setItem("token", res.token)
       }),
@@ -41,13 +45,25 @@ export class AuthService {
       catchError((error: any) => {
         this._user.set(null)
         this._token.set(null)
-        // ?¿
         this._authStatus.set('not-authenticated')
         return of(false)
       })
     )
   }
 
+  register( name: string, password: string): Observable<boolean>{
+    return this._http.post<boolean>('URL',{
+      name: name,
+      password: password
+    }).pipe(
+      map(() => true),
+      catchError((error: any) => {
+        return of(false)
+      })
+    )
+  }
+
+  // TODO: completar checkStatus
   checkStatus(): Observable<boolean>{
     return of (true)
   }
