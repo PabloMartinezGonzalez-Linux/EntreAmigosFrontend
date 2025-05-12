@@ -1,9 +1,11 @@
-<div class="h-full w-full bg-gradient-to-b from-neutral-500 to-black">
+<div class="h-full w-full">
   <img src="/karting/kart.jpg" alt="" class="w-full">
-  <h1 class="mx-9 mt-9 mb-3 text-3xl graduate-regular">eventos</h1>
+  <div class="flex flex-row items-center justify-between my-5 mx-10">
+    <h1 class="text-4xl font-secondary">eventos</h1>
+    <p-autocomplete [(ngModel)]="value" [dropdown]="true" [suggestions]="items" (completeMethod)="search($event)" />
+  </div>
   <app-standard-table
     [tableConfig]="config"
     [data]="data"
   />
-
 </div>

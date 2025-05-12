@@ -94,4 +94,41 @@ export const KartingDataClassification = [
     gap: "-9",
     mejorCircuito: "Granda"
   },
+  {
+    id: "asdgrh342",
+    posicion: 1,
+    puntos: 23,
+    name: "pablo",
+    equipo: "mercedes",
+    gap: "-9",
+    mejorCircuito: "Granda"
+  },
+  {
+    id: "asdasd133",
+    posicion: 1,
+    puntos: 23,
+    name: "pablo",
+    equipo: "mercedes",
+    gap: "-9",
+    mejorCircuito: "Granda"
+  },
+  {
+    id: "asdasd133",
+    posicion: 1,
+    puntos: 23,
+    name: "pablo",
+    equipo: "mercedes",
+    gap: "-9",
+    mejorCircuito: "Granda"
+  },
+  {
+    id: "asdasd133",
+    posicion: 1,
+    puntos: 23,
+    name: "pablo",
+    equipo: "mercedes",
+    gap: "-9",
+    mejorCircuito: "Granda"
+  },
+
 ]

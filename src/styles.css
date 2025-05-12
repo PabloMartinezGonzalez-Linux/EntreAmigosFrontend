@@ -2,8 +2,7 @@
 @plugin "daisyui";
 @import "primeicons/primeicons.css";
 
-@import "tailwindcss";
-
 @theme {
   --breakpoint-3xl: 120rem;
+  --font-secondary: "Graduate", "serif"
 }

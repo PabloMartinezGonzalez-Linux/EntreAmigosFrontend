@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { bowlingData } from '../table-config/mockup';
-import { BowlingConfig } from '../table-config/bowling-config';
 import { StandardTableComponent } from '../../../shared/components/standard-table/standard-table.component';
+import { bowlingConfig } from '../table-config/bowling-config';
 
 @Component({
   selector: 'app-bowling-events',
@@ -12,6 +12,6 @@ import { StandardTableComponent } from '../../../shared/components/standard-tabl
 })
 export class BowlingEventsComponent {
 
-  config = BowlingConfig
+  config = bowlingConfig
   data = bowlingData
 }

@@ -1,1 +1,15 @@
-<img src="/padel/padel.jpg" alt="" class="w-full">
+<div class="bg-neutral-300 pb-5 flex flex-col items-center justify-center">
+  <img src="/padel/padel.jpg" alt="" class="w-full">
+  <div class="w-full mb-7 p-4 bg-black text-center">
+    <h1 class="text-5xl font-secondary">clasificacion temporada 2025</h1>
+  </div>
+  <div class="my-5 w-full 3xl:w-3/4">
+    <app-standard-table [tableConfig]="config" [data]="data" />
+  </div>
+  <div class="grid grid-cols-2 gap-2 w-3/4 3xl:w-2/4 mb-10">
+    <div id="salobreja" class="h-74"></div>
+    <div id="funpadel" class="h-74"></div>
+    <div id="entrecaminos" class="h-67"></div>
+    <div id="forus" class="h-67"></div>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 import { TableConfig } from "../../../shared/interfaces/table-config";
 
-export const BowlingConfig: TableConfig = {
+export const bowlingConfig: TableConfig = {
   columns: [
     {
       code: "nombre",
@@ -13,4 +13,30 @@ export const BowlingConfig: TableConfig = {
       type: "number"
     }
   ]
+}
+
+export const bowlingConfigClassification: TableConfig = {
+  columns: [
+    {
+      code: "posicion",
+      label: "Pos",
+      type: "number"
+    },
+    {
+      code: "puntos",
+      label: "Ptos",
+      type: "number"
+    },
+    {
+      code: "jugador",
+      label: "Jugador",
+      type: "string"
+    },
+    {
+      code: "gap",
+      label: "Gap",
+      type: "string"
+    },
+  ],
+  isClassification: true
 }

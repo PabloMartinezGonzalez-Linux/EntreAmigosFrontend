@@ -1,5 +1,15 @@
-<img src="/karting/kart.jpg" alt="" class="w-full">
-<app-standard-table
-  [tableConfig]="config"
-  [data]="data"
-/>
+<div class="bg-neutral-300 pb-5 flex flex-col justify-center items-center">
+  <img src="/karting/kart.jpg" alt="" class="w-full" />
+  <div class="w-full mb-7 p-4 bg-gradient-to-r from-black to-orange-600 text-center">
+    <h1 class="text-5xl font-secondary">clasificacion temporada 2025</h1>
+  </div>
+  <div class="mb-5 w-full">
+    <app-standard-table [tableConfig]="config" [data]="data" />
+  </div>
+  <div class="grid grid-cols-2 gap-2 w-3/4 3xl:w-2/4 mb-10">
+    <div id="granada" class="h-74"></div>
+    <div id="malaga" class="h-74"></div>
+    <div id="cordoba" class="h-67"></div>
+    <div id="almeria" class="h-67"></div>
+  </div>
+</div>

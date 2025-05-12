@@ -1,45 +1,79 @@
 <div class="bg-black mb-15">
-  <img src="/karting/kart.jpg" alt="" class="w-full">
+  <img src="/karting/kart.jpg" alt="" class="w-full" />
   <div class="text-gray-200 p-8 rounded-xl max-w-2xl mx-auto mt-12 space-y-6">
-    <h2 class="text-4xl font-extrabold text-orange-600">🎳 Próxima jornada de bolos</h2>
+    <h2 class="text-4xl font-extrabold text-orange-600">
+      🎳 Próxima jornada de bolos
+    </h2>
 
     <p class="text-gray-300 text-lg">
-      ¡No te pierdas el proximo evento de bowling! Ya seas principiante o un jugador experimentado, este evento está diseñado para que todos se diviertan y compitan en un ambiente lleno de energía.
+      ¡No te pierdas el proximo evento de bowling! Ya seas principiante o un
+      jugador experimentado, este evento está diseñado para que todos se
+      diviertan y compitan en un ambiente lleno de energía.
     </p>
-
-    <div class="text-gray-400">
-      <p><span class="text-orange-600 font-semibold">📅 Fecha:</span> Sábado 11 de mayo</p>
-      <p><span class="text-orange-600 font-semibold">🕗 Hora:</span> PN (Por la noche)</p>
-      <p><span class="text-orange-600 font-semibold">📍 Lugar:</span> Bowling Center Downtown</p>
-    </div>
-
     <div>
       <h3 class="text-2xl font-bold text-orange-600">📝 Inscripciones</h3>
-      <p class="text-gray-300">La inscripción no tiene costo. Puedes registrarte hasta el <span class="font-semibold text-gray-100">9 de mayo</span> haciendo click en <span class="text-orange-600">Inscribete Ahora</span>.</p>
+      <p class="text-gray-300">
+        La inscripción no tiene costo. Puedes registrarte hasta el
+        <span class="font-semibold text-gray-100">9 de mayo</span> haciendo
+        click en <span class="text-orange-600">Inscribete Ahora</span>.
+      </p>
     </div>
-
     <div>
-      <h3 class="text-2xl font-bold text-orange-600">🎉 Ambiente y Sorpresas</h3>
-      <p class="text-gray-300">Gabiso en vivo, snacks disponibles y muchas sorpresas más. Tirará el dedos algun bolo?!</p>
+      <h3 class="text-2xl font-bold text-orange-600">
+        🎉 Ambiente y Sorpresas
+      </h3>
+      <p class="text-gray-300">
+        Gabiso en vivo, snacks disponibles y muchas sorpresas más. Tirará el
+        dedos algun bolo?!
+      </p>
     </div>
-
     <div class="text-center pt-4">
-      <a href="#" class="inline-block bg-orange-600 text-black font-bold py-3 px-6 rounded hover:bg-orange-500 transition">
+      <a
+        href="#"
+        class="inline-block bg-orange-600 text-black font-bold py-3 px-6 rounded hover:bg-orange-500 transition"
+      >
         ¡Inscríbete Ahora!
       </a>
     </div>
     <div class="w-full flex items-center justify-center mt-10">
-      <p-galleria [value]="images()" [responsiveOptions]="responsiveOptions" [containerStyle]="{ 'max-width': '640px' }" [numVisible]="5">
-          <ng-template #item let-item>
-              <img [src]="item.itemImageSrc" style="width:100%" />
-          </ng-template>
-          <ng-template #thumbnail let-item>
-              <img [src]="item.thumbnailImageSrc" />
-          </ng-template>
+      <p-galleria
+        [value]="images()"
+        [responsiveOptions]="responsiveOptions"
+        [containerStyle]="{ 'max-width': '640px' }"
+        [numVisible]="5"
+      >
+        <ng-template #item let-item>
+          <img [src]="item.itemImageSrc" style="width: 100%" />
+        </ng-template>
+        <ng-template #thumbnail let-item>
+          <img [src]="item.thumbnailImageSrc" />
+        </ng-template>
       </p-galleria>
     </div>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12617.382468683945!2d-3.7943256499999998!3d37.7584935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6dd76b25f2cc9f%3A0xcb178dfe2936a87b!2sParador%20de%20Ja%C3%A9n!5e0!3m2!1ses!2ses!4v1746785792724!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <hr>
+    <div class="text-gray-400">
+      <h1 class="my-8 text-4xl font-bold text-orange-600">📍 Punto de encuentro</h1>
+      <p>
+        <span class="text-orange-600 font-semibold">📅 Fecha:</span> Sábado 11
+        de mayo
+      </p>
+      <p>
+        <span class="text-orange-600 font-semibold">🕗 Hora:</span> PN (Por la
+        noche)
+      </p>
+      <p>
+        <span class="text-orange-600 font-semibold">📍 Lugar:</span> Bowling
+        Center Downtown
+      </p>
+    </div>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12617.382468683945!2d-3.7943256499999998!3d37.7584935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6dd76b25f2cc9f%3A0xcb178dfe2936a87b!2sParador%20de%20Ja%C3%A9n!5e0!3m2!1ses!2ses!4v1746785792724!5m2!1ses!2ses"
+      width="600"
+      height="450"
+      style="border: 0"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
   </div>
 </div>
-
-

@@ -1,3 +1,32 @@
 :host {
   display: block;
 }
+
+:host {
+  display: block;
+}
+
+#forus {
+  background-image: url("../../../../../public/padel/forus.jpg");
+  background-size: cover;
+  filter:brightness(0.6);
+}
+
+#salobreja {
+  background-image: url("../../../../../public/padel/salobreja.jpg");
+  background-size: cover;
+  filter:brightness(0.6);
+}
+
+#entrecaminos {
+  background-image: url("../../../../../public/padel/entrecaminos.jpg");
+  background-size: cover;
+  filter:brightness(0.6);
+}
+
+#funpadel {
+  background-image: url("../../../../../public/padel/funpadel.jpg");
+  background-size: cover;
+  filter:brightness(0.6);
+}
+

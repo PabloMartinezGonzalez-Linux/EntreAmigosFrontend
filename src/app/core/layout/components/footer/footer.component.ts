@@ -31,6 +31,24 @@ export class FooterComponent {
       case '/sports/bowling/next-event': {
         return "next-event"
       }
+      case '/sports/padel/events': {
+        return "next-event"
+      }
+      case '/sports/karting/events': {
+        return "next-event"
+      }
+      case '/sports/bowling/events': {
+        return "next-event"
+      }
+      case '/sports/padel/classification': {
+        return "classification"
+      }
+      case '/sports/karting/classification': {
+        return "classification"
+      }
+      case '/sports/bowling/classification': {
+        return "classification"
+      }
       default:{
         return "default"
       }

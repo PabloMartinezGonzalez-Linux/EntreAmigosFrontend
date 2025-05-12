@@ -18,6 +18,9 @@ export const routes: Routes = [
   {
     path:'auth',
     loadChildren: () => import('./auth/auth.routes').then((m) => m.authRoutes),
+    canMatch: [
+      AuthGuard,
+    ]
   },
   {
     path:'sports',

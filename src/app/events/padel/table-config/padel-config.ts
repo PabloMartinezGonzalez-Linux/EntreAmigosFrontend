@@ -29,3 +29,34 @@ export const padelConfig: TableConfig = {
     },
   ]
 }
+
+export const classificationPadelConfig: TableConfig = {
+  columns: [
+    {
+      code: "posicion",
+      label: "Pos",
+      type: "number"
+    },
+    {
+      code: "puntos",
+      label: "Ptos",
+      type: "number"
+    },
+    {
+      code: "jugador",
+      label: "Jugador",
+      type: "string"
+    },
+    {
+      code: "gap",
+      label: "Gap",
+      type: "string"
+    },
+    {
+      code: "posicionJuego",
+      label: "Posicion de juego",
+      type: "string"
+    },
+  ],
+  isClassification: true
+}

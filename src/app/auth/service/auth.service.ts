@@ -51,6 +51,7 @@ export class AuthService {
     )
   }
 
+  // TODO: Revisar tipo de respuesta de la peticion de registro
   register( name: string, password: string): Observable<boolean>{
     return this._http.post<boolean>('URL',{
       name: name,
@@ -65,7 +66,7 @@ export class AuthService {
 
   // TODO: completar checkStatus
   checkStatus(): Observable<boolean>{
-    return of (true)
+    return of (false)
   }
 
   logOut(){

@@ -1,3 +1,27 @@
 :host {
   display: block;
 }
+
+#malaga {
+  background-image: url("../../../../../public/karting/malagaKart.jpg");
+  background-size: cover;
+  filter:brightness(0.6);
+}
+
+#cordoba {
+  background-image: url("../../../../../public/karting/karting-cordoba.jpg");
+  background-size: cover;
+  filter:brightness(0.6);
+}
+
+#almeria {
+  background-image: url("../../../../../public/karting/roquetas.jpg");
+  background-size: cover;
+  filter:brightness(0.6);
+}
+
+#granada {
+  background-image: url("../../../../../public/karting/granada.jpg");
+  background-size: cover;
+  filter:brightness(0.6);
+}
