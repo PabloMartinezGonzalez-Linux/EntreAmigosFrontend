@@ -30,9 +30,9 @@ export class AuthService {
   user = computed(() => this._user())
   token = computed(() => this._token())
 
-  login( email: string, password: string ): Observable<boolean>{
-    return this._http.post<AuthResponse>('URL', {
-      email: email,
+  login( name: string, password: string ): Observable<boolean>{
+    return this._http.post<AuthResponse>('http://localhost:3000/auth/login', {
+      name: name,
       password: password
     }).pipe(
       tap(res => {
@@ -53,7 +53,7 @@ export class AuthService {
 
   // TODO: Revisar tipo de respuesta de la peticion de registro
   register( name: string, password: string): Observable<boolean>{
-    return this._http.post<boolean>('URL',{
+    return this._http.post<AuthResponse>('URL',{
       name: name,
       password: password
     }).pipe(

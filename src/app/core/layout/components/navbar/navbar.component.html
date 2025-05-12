@@ -18,15 +18,26 @@
           home
         </a>
     </span>
-    <span class="graduate-regular mx-2">
-      <a
-        [routerLink]="['auth/login']"
-        routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }"
-        class="hover:text-orange-600"
-      >
-        login
-      </a>
-    </span>
+    @if (authService.authStatus() !== "authenticated") {
+      <span class="graduate-regular mx-2">
+        <a
+          [routerLink]="['auth/login']"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="hover:text-orange-600"
+        >
+          login
+        </a>
+      </span>
+    }
+    @if (authService.authStatus() === "authenticated") {
+      <span class="graduate-regular mx-2">
+        <a
+          class="hover:text-orange-600"
+        >
+          {{ authService.user()?.name }}
+        </a>
+      </span>
+    }
   </div>
 </nav>
