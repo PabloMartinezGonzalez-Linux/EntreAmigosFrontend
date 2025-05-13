@@ -43,6 +43,7 @@ export class RegisterComponent {
     if (this.registerForm.invalid) return
     if (password === repitPassword){
       this.AuthService.register( name, password ).subscribe((canRegister) => {
+        console.log(canRegister)
         this.isSubmit.set(true)
         this.canRegister.set(canRegister)
         if (canRegister) {

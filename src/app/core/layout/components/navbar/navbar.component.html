@@ -31,12 +31,20 @@
       </span>
     }
     @if (authService.authStatus() === "authenticated") {
-      <span class="graduate-regular mx-2">
-        <a
-          class="hover:text-orange-600"
-        >
-          {{ authService.user()?.name }}
-        </a>
+      <span>
+        <p-toast position="bottom-right"/>
+        <p-confirmpopup #cp>
+            <ng-template #headless let-message>
+                <div class="rounded p-4">
+                    <span>{{ message.message }}</span>
+                    <div class="flex items-center gap-2 mt-4">
+                        <p-button (onClick)="cp.onAccept()" label="Logout" size="small" />
+                        <p-button (onClick)="cp.onReject()" label="Cancel" [text]="true" size="small" severity="secondary" />
+                    </div>
+                </div>
+            </ng-template>
+        </p-confirmpopup>
+        <p-button class="font-secondary" (onClick)="confirm($event)" [label]="authService.user()?.name"/>
       </span>
     }
   </div>

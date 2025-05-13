@@ -27,6 +27,10 @@
         dedos algun bolo?!
       </p>
     </div>
+    <h2 class="text-4xl font-extrabold text-orange-600">
+      🎳 Lista de participantes
+    </h2>
+    @if (authService.authStatus() === "authenticated") {
     <div class="text-center pt-4">
       <a
         href="#"
@@ -35,24 +39,11 @@
         ¡Inscríbete Ahora!
       </a>
     </div>
-    <div class="w-full flex items-center justify-center mt-10">
-      <p-galleria
-        [value]="images()"
-        [responsiveOptions]="responsiveOptions"
-        [containerStyle]="{ 'max-width': '640px' }"
-        [numVisible]="5"
-      >
-        <ng-template #item let-item>
-          <img [src]="item.itemImageSrc" style="width: 100%" />
-        </ng-template>
-        <ng-template #thumbnail let-item>
-          <img [src]="item.thumbnailImageSrc" />
-        </ng-template>
-      </p-galleria>
-    </div>
-    <hr>
+    }
     <div class="text-gray-400">
-      <h1 class="my-8 text-4xl font-bold text-orange-600">📍 Punto de encuentro</h1>
+      <h1 class="my-8 text-4xl font-extrabold text-orange-600">
+        📍 Punto de encuentro
+      </h1>
       <p>
         <span class="text-orange-600 font-semibold">📅 Fecha:</span> Sábado 11
         de mayo

@@ -1,134 +1,116 @@
+import { ClassificationDataResponse } from "../interfaces/karting.interface"
+
 export const KartingData = [
   {
-    id: "aaaaaaa",
-    posicion: 1,
+    event_id: "asdasdasd",
+    position: 1,
     name: "Pablo",
-    vueltaRapida: "1:23.23",
-    tiempoMedio: "1:40.25"
+    quickLap: "1:23.23",
+    averageTime: "1:40.25"
   },
   {
-    id: "asdasd133",
-    posicion: 1,
+    event_id: "aaaaaasdasdaaa",
+    position: 1,
     name: "Pablo",
-    vueltaRapida: "1:23.23",
-    tiempoMedio: "1:40.25"
+    quickLap: "1:23.23",
+    averageTime: "1:40.25"
   },
   {
-    id: "asdasd133",
-    posicion: 1,
+    event_id: "4aaaa",
+    position: 1,
     name: "Pablo",
-    vueltaRapida: "1:23.23",
-    tiempoMedio: "1:40.25"
+    quickLap: "1:23.23",
+    averageTime: "1:40.25"
   },
   {
-    id: "asdasd133",
-    posicion: 1,
+    event_id: "aaatq234aaaa",
+    position: 1,
     name: "Pablo",
-    vueltaRapida: "1:23.23",
-    tiempoMedio: "1:40.25"
-  },
-  {
-    id: "asdasd133",
-    posicion: 1,
-    name: "Pablo",
-    vueltaRapida: "1:23.23",
-    tiempoMedio: "1:40.25"
-  },
-  {
-    id: "asdasd133",
-    posicion: 1,
-    name: "Pablo",
-    vueltaRapida: "1:23.23",
-    tiempoMedio: "1:40.25"
-  },
-  {
-    id: "asdasd133",
-    posicion: 1,
-    name: "Pablo",
-    vueltaRapida: "1:23.23",
-    tiempoMedio: "1:40.25"
-  },
-  {
-    id: "asdasd133",
-    posicion: 1,
-    name: "Pablo",
-    vueltaRapida: "1:23.23",
-    tiempoMedio: "1:40.25"
+    quickLap: "1:23.23",
+    averageTime: "1:40.25"
   },
 ]
 
-export const KartingDataClassification = [
+export const KartingDataClassification: ClassificationDataResponse[] = [
   {
-    id: "aaaaaaaa",
-    posicion: 1,
-    puntos: 23,
+    event_id: 1,
+    position: 1,
+    points: 23,
     name: "pablo",
-    equipo: "mercedes",
+    team: "mercedes",
     gap: "-9",
-    mejorCircuito: "Granda"
+    bestCircuit: "Granda"
   },
   {
-    id: "asdasd133",
-    posicion: 1,
-    puntos: 23,
+    event_id: 12,
+    position: 1,
+    points: 23,
     name: "pablo",
-    equipo: "mercedes",
+    team: "mercedes",
     gap: "-9",
-    mejorCircuito: "Granda"
+    bestCircuit: "Granda"
   },
   {
-    id: "asdasd133",
-    posicion: 1,
-    puntos: 23,
+    event_id: 122,
+    position: 1,
+    points: 23,
     name: "pablo",
-    equipo: "mercedes",
+    team: "mercedes",
     gap: "-9",
-    mejorCircuito: "Granda"
+    bestCircuit: "Granda"
   },
   {
-    id: "asdasd133",
-    posicion: 1,
-    puntos: 23,
+    event_id: 31,
+    position: 1,
+    points: 23,
     name: "pablo",
-    equipo: "mercedes",
+    team: "mercedes",
     gap: "-9",
-    mejorCircuito: "Granda"
+    bestCircuit: "Granda"
+  },
+   {
+    event_id: 12,
+    position: 1,
+    points: 23,
+    name: "pablo",
+    team: "mercedes",
+    gap: "-9",
+    bestCircuit: "Granda"
   },
   {
-    id: "asdgrh342",
-    posicion: 1,
-    puntos: 23,
+    event_id: 122,
+    position: 1,
+    points: 23,
     name: "pablo",
-    equipo: "mercedes",
+    team: "mercedes",
     gap: "-9",
-    mejorCircuito: "Granda"
+    bestCircuit: "Granda"
   },
   {
-    id: "asdasd133",
-    posicion: 1,
-    puntos: 23,
+    event_id: 31,
+    position: 1,
+    points: 23,
     name: "pablo",
-    equipo: "mercedes",
+    team: "mercedes",
     gap: "-9",
-    mejorCircuito: "Granda"
+    bestCircuit: "Granda"
+  },
+   {
+    event_id: 12,
+    position: 1,
+    points: 23,
+    name: "pablo",
+    team: "mercedes",
+    gap: "-9",
+    bestCircuit: "Granda"
   },
   {
-    id: "asdasd133",
-    posicion: 1,
-    puntos: 23,
+    event_id: 122,
+    position: 1,
+    points: 23,
     name: "pablo",
-    equipo: "mercedes",
+    team: "mercedes",
     gap: "-9",
-    mejorCircuito: "Granda"
-  },
-  {
-    id: "asdasd133",
-    posicion: 1,
-    puntos: 23,
-    name: "pablo",
-    equipo: "mercedes",
-    gap: "-9",
-    mejorCircuito: "Granda"
-  },
-
+    bestCircuit: "Granda"
+  }
 ]

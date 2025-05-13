@@ -33,6 +33,6 @@ export class StandardTableComponent implements OnInit{
   }
 
   checkFisrtRow( row: any, data: any ){
-    return data[0].id === row.id
+    return data[0].event_id === row.event_id
   }
 }

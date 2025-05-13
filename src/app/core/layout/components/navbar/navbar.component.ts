@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
-import { MenuItem } from 'primeng/api'
+import { ConfirmationService, MenuItem, MessageService } from 'primeng/api'
 import { TieredMenuModule } from 'primeng/tieredmenu'
 import { CommonModule } from '@angular/common';
 import { ImportsModule } from '../../../../shared/imports';
 import { AuthService } from '../../../../auth/service/auth.service';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 
 @Component({
@@ -14,8 +15,10 @@ import { AuthService } from '../../../../auth/service/auth.service';
     RouterLinkActive,
     CommonModule,
     ImportsModule,
-    TieredMenuModule
+    TieredMenuModule,
+    ConfirmDialogModule
   ],
+  providers: [ConfirmationService, MessageService],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -26,7 +29,7 @@ export class NavbarComponent implements OnInit{
 
   items: MenuItem[] | undefined;
 
-  constructor(private router: Router){}
+  constructor(private router: Router, private confirmationService: ConfirmationService, private messageService: MessageService){}
 
   ngOnInit() {
     this.items = [
@@ -101,6 +104,20 @@ export class NavbarComponent implements OnInit{
       ]
       }
     ];
+  }
+
+  confirm(event: Event) {
+      this.confirmationService.confirm({
+          target: event.target as EventTarget,
+          message: '¿Seguro que quieres cerrar sesion?',
+          accept: () => {
+            this.messageService.add({ severity: 'info', summary: 'Confirmed', detail: 'Has cerrado sesión', life: 3000 });
+            setTimeout(() => {
+              this.authService.logOut()
+            }, 1500)
+          },
+          reject: () => {}
+      });
   }
 }
 

@@ -3,19 +3,24 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../service/auth.service';
 import { ValidFormService } from '../../service/validForm.service';
+import { ImportsModule } from '../../../shared/imports';
+import { MessageService } from 'primeng/api';
 
 
 @Component({
   selector: 'app-login',
   imports: [
     RouterLink,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ImportsModule
   ],
+  providers: [MessageService],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginComponent {
+  constructor(private messageService: MessageService) {}
   // Inyeccion de dependencias angular
   private fb = inject(FormBuilder)
   router = inject(Router)
@@ -40,6 +45,13 @@ export class LoginComponent {
   })
 
   /**
+   * Metodo que contiene la info del toast de error
+   */
+  showError() {
+    this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Credenciales inválidas', life: 3000 });
+  }
+
+  /**
    * Metodo que hace la petición del user a la api
    */
   onSubmit(): void{
@@ -52,8 +64,8 @@ export class LoginComponent {
         this.hasError.set(false)
         return
       }
+      this.showError()
       this.hasError.set(true)
     })
-
   }
 }

@@ -1,15 +1,117 @@
 <div class="bg-neutral-300 pb-5 flex flex-col justify-center items-center">
   <img src="/karting/kart.jpg" alt="" class="w-full" />
-  <div class="w-full mb-7 p-4 bg-gradient-to-r from-black to-orange-600 text-center">
-    <h1 class="text-5xl font-secondary">clasificacion temporada 2025</h1>
+  <div
+    class="w-full mb-7 p-4 bg-gradient-to-r from-black to-orange-600 text-center"
+  >
+    <h1 class="text-5xl 3xl:text-6xl font-secondary">
+      clasificacion temporada 2025
+    </h1>
   </div>
-  <div class="mb-5 w-full">
+  <div class="mb-5 w-full 3xl:w-10/12">
     <app-standard-table [tableConfig]="config" [data]="data" />
   </div>
-  <div class="grid grid-cols-2 gap-2 w-3/4 3xl:w-2/4 mb-10">
-    <div id="granada" class="h-74"></div>
-    <div id="malaga" class="h-74"></div>
-    <div id="cordoba" class="h-67"></div>
-    <div id="almeria" class="h-67"></div>
+  <div class="w-full 3xl:w-10/12 mb-7 text-center">
+    <h1 class="text-5xl p-4 mx-10 3xl:text-6xl font-secondary bg-black">
+      circuitos de la temporada
+    </h1>
+  </div>
+  <div class="space-y-12 mx-auto mt-5 px-6 w-3/4 3xl:w-8/12">
+    <div class="flex flex-col md:flex-row items-center md:items-start">
+      <img
+        src="/karting/granada.jpg"
+        alt="Circuito de Granada"
+        class="w-full md:w-1/2 3xl:h-90 object-cover rounded-lg shadow-md md:mr-10 mb-6 md:mb-0"
+      />
+      <div class="text-black md:w-1/2">
+        <h2 class="text-3xl font-bold text-orange-600 mb-4">
+          Circuito de Karting Granada 🏁
+        </h2>
+        <p class="mb-3 text-lg">
+          Uno de los circuitos más
+          <span class="text-orange-600 font-semibold">emocionantes del sur</span
+          >, ideal para <span class="italic">principiantes</span> y
+          <span class="italic">profesionales</span>.
+        </p>
+        <p class="text-lg">
+          Equipado con
+          <span class="font-medium text-orange-600">karts modernos</span>,
+          seguridad de alto nivel y un ambiente competitivo que no te dejará
+          indiferente. 🏆
+        </p>
+      </div>
+    </div>
+
+    <div class="flex flex-col md:flex-row items-center md:items-start">
+      <img
+        src="/karting/roquetas.jpg"
+        alt="Circuito de Almeria"
+        class="w-full md:w-1/2 3xl:h-80 object-cover rounded-lg shadow-md md:mr-10 mb-6 md:mb-0"
+      />
+      <div class="text-black md:w-1/2">
+        <h2 class="text-3xl font-bold text-orange-600 mb-4">
+          Circuito de Karting Almeria
+        </h2>
+        <p class="mb-3 text-lg">
+          Un trazado
+          <span class="text-orange-600 font-semibold">rápido y técnico</span>,
+          perfecto para grupos, empresas y competiciones amistosas.
+        </p>
+        <p class="text-lg">
+          Su <span class="font-semibold">accesibilidad</span> y entorno moderno
+          lo convierten en una de las mejores opciones del centro de Andalucía.
+        </p>
+      </div>
+    </div>
+
+    <div class="flex flex-col md:flex-row items-center md:items-start">
+      <img
+        src="/karting/malagaKart.jpg"
+        alt="Circuito de Málaga"
+        class="w-full md:w-1/2 3xl:h-90 object-cover rounded-lg shadow-md md:mr-10 mb-6 md:mb-0"
+      />
+      <div class="text-black md:w-1/2">
+        <h2 class="text-3xl font-bold text-orange-600 mb-4">
+          Circuito de Karting Málaga
+        </h2>
+        <p class="mb-3 text-lg">
+          Con vistas al mar y un trazado técnico, este circuito combina
+          <span class="text-orange-600 font-semibold"
+            >naturaleza y velocidad</span
+          >
+          como ningún otro.
+        </p>
+        <p class="text-lg">
+          Ideal para <span class="italic">familias</span>,
+          <span class="italic">eventos</span> y
+          <span class="italic">entusiastas</span> del motor que buscan algo
+          único.
+        </p>
+      </div>
+    </div>
+    <div class="mb-10 flex flex-col md:flex-row items-center md:items-start">
+      <img
+        src="/karting/karting-cordoba.jpg"
+        alt="Circuito de Málaga"
+        class="w-full md:w-1/2 3xl:h-80 object-cover rounded-lg shadow-md md:mr-10 mb-6 md:mb-0"
+      />
+      <div class="text-black md:w-1/2">
+        <h2 class="text-3xl font-bold text-orange-600 mb-4">
+          Circuito de Karting Córdoba
+        </h2>
+        <p class="mb-3 text-lg">
+          Con vistas al mar y un trazado técnico, este circuito combina
+          <span class="text-orange-600 font-semibold"
+            >naturaleza y velocidad</span
+          >
+          como ningún otro.
+        </p>
+        <p class="text-lg">
+          Ideal para <span class="italic">familias</span>,
+          <span class="italic">eventos</span> y
+          <span class="italic">entusiastas</span> del motor que buscan algo
+          único.
+        </p>
+      </div>
+    </div>
   </div>
 </div>

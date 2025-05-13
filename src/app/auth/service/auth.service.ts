@@ -51,9 +51,8 @@ export class AuthService {
     )
   }
 
-  // TODO: Revisar tipo de respuesta de la peticion de registro
   register( name: string, password: string): Observable<boolean>{
-    return this._http.post<AuthResponse>('URL',{
+    return this._http.post('http://localhost:3000/auth/register',{
       name: name,
       password: password
     }).pipe(
@@ -64,9 +63,32 @@ export class AuthService {
     )
   }
 
-  // TODO: completar checkStatus
   checkStatus(): Observable<boolean>{
-    return of (false)
+    const token = localStorage.getItem("token")
+    if (!token) {
+      this.logOut()
+      return of(false)
+    }
+
+    return this._http.get<AuthResponse>("http://localhost:3000/auth/check-status",{
+      headers:{
+        Authorization: `Bearer ${token}`
+      }
+    }).pipe(
+      tap(res => {
+        this._user.set(res.user)
+        this._token.set(res.token)
+        this._authStatus.set('authenticated')
+        localStorage.setItem("token", res.token)
+      }),
+      map(() => true),
+      catchError((error: any) => {
+        this._user.set(null)
+        this._token.set(null)
+        this._authStatus.set('not-authenticated')
+        return of(false)
+      })
+    )
   }
 
   logOut(){
