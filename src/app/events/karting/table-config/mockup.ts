@@ -1,5 +1,50 @@
 import { ClassificationDataResponse } from "../interfaces/karting.interface"
 
+export const usersData = [
+  {
+    id: 1,
+    name: "pablo",
+    password: "asd",
+    role_id: 2
+  },
+  {
+    id: 1,
+    name: "juan",
+    password: "asd",
+    role_id: 2
+  },
+  {
+    id: 1,
+    name: "pedro",
+    password: "asd",
+    role_id: 2
+  },
+  {
+    id: 1,
+    name: "pablo",
+    password: "asd",
+    role_id: 2
+  },
+  {
+    id: 1,
+    name: "juan",
+    password: "asd",
+    role_id: 2
+  },
+  {
+    id: 1,
+    name: "pedro",
+    password: "asd",
+    role_id: 2
+  },
+  {
+    id: 1,
+    name: "pablo",
+    password: "asd",
+    role_id: 2
+  },
+]
+
 export const KartingData = [
   {
     event_id: "asdasdasd",

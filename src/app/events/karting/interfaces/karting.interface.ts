@@ -36,15 +36,10 @@ export interface LoadClassificationData {
   results: ClassificationDataResponse[]
 }
 
-export interface LoadDataNextEvent {
-  pos: number,
-  name: string
-}
-
-export interface LoadDataNextEventResponse {
-  results: LoadDataNextEvent[]
+export interface LoadUsersNextEventResponse {
+  results: User[]
 }
 
 export interface PostNewUserResponse {
-  message: string
+  status: string
 }

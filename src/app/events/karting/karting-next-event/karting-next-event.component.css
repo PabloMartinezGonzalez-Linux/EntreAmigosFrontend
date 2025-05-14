@@ -1,3 +1,15 @@
 :host {
   display: block;
 }
+
+::ng-deep p-orderList .p-orderlist-controls {
+  display: none !important;
+}
+
+::ng-deep p-orderList .p-orderlist-controls .p-orderlist-button {
+  display: none !important;
+}
+
+::ng-deep p-orderList .p-orderlist-buttons {
+  display: none !important;
+}

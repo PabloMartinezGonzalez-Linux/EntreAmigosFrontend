@@ -56,14 +56,9 @@
         }
       </div>
       <div class="h-11 lg:w-70 3xl:w-90 px-2 text-lg flex items-center hover:bg-orange-700 bg-orange-600 mt-7">
+        <p-toast position="bottom-right"/>
         <button type="submit" class="w-full h-full text-center cursor-pointer">Register</button>
       </div>
-      <!-- TODO: Cambiar a posicion absoluta -->
-      @if (!canRegister() && isSubmit()) {
-        <div class="h-11 lg:w-70 3xl:w-90 px-2 text-lg flex items-center bg-red-600 mt-7">
-          <div type="submit" class="w-full text-center">Error al hacer el registro</div>
-        </div>
-      }
       <div class="text-black mt-5 3xl:text-xl">
         <p>¿Tienes cuenta?
           <span class="text-orange-600">

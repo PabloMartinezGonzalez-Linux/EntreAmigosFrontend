@@ -33,7 +33,7 @@
     @if (authService.authStatus() === "authenticated") {
       <span>
         <p-toast position="bottom-right"/>
-        <p-confirmpopup #cp>
+        <p-confirmpopup #cp class="prueba">
             <ng-template #headless let-message>
                 <div class="rounded p-4">
                     <span>{{ message.message }}</span>
@@ -44,7 +44,12 @@
                 </div>
             </ng-template>
         </p-confirmpopup>
-        <p-button class="font-secondary" (onClick)="confirm($event)" [label]="authService.user()?.name"/>
+        <p-button class="font-secondary" (onClick)="confirm($event)">
+          <div class="flex items-center flex-row gap-2">
+            <span>{{ authService.user()?.name }}</span>
+            <i class="pi pi-sign-out"></i>
+          </div>
+        </p-button>
       </span>
     }
   </div>

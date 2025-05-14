@@ -1,43 +1,52 @@
 <div class="bg-black mb-15">
   <img src="/karting/kart.jpg" alt="" class="w-full" />
-  <div class="text-gray-200 p-8 rounded-xl max-w-2xl mx-auto mt-12 space-y-6">
-    <h2 class="text-4xl font-extrabold text-orange-600">
-      🎳 Próxima jornada de bolos
-    </h2>
-
+  <h2
+    class="w-full text-center p-7 text-4xl font-secondary font-extrabold text-white bg-orange-600"
+  >
+    proximo evento de karting
+  </h2>
+  <div class="text-gray-200 p-8 rounded-xl max-w-2xl mx-auto space-y-6">
     <p class="text-gray-300 text-lg">
-      ¡No te pierdas el proximo evento de bowling! Ya seas principiante o un
-      jugador experimentado, este evento está diseñado para que todos se
+      ¡No te pierdas el proximo evento de karting! Ya seas principiante o un
+      piloto experimentado, este evento está diseñado para que todos se
       diviertan y compitan en un ambiente lleno de energía.
     </p>
-    <div>
-      <h3 class="text-2xl font-bold text-orange-600">📝 Inscripciones</h3>
-      <p class="text-gray-300">
-        La inscripción no tiene costo. Puedes registrarte hasta el
-        <span class="font-semibold text-gray-100">9 de mayo</span> haciendo
-        click en <span class="text-orange-600">Inscribete Ahora</span>.
-      </p>
+
+    <div class="card xl:flex xl:justify-content-center">
+      <h2 class="mb-7 text-4xl font-extrabold text-orange-600">
+        Lista de participantes
+      </h2>
+      <div class="mb-7">
+        <h3 class="text-2xl font-bold text-orange-600">📝 Inscripciones</h3>
+        <p class="text-gray-300">
+          La inscripción no tiene costo. Puedes registrarte hasta el
+          <span class="font-semibold text-gray-100">9 de mayo</span> haciendo
+          click en <span class="text-orange-600">Inscribete Ahora</span>.
+          <span class="italic">Para poder inscribete debes estar logueado.</span>
+        </p>
+      </div>
+      <p-orderList
+        [value]="users()"
+        [listStyle]="{ height: '25rem', width: '37.5rem' }"
+        [dragdrop]="false"
+      >
+        <ng-template let-user pTemplate="item">
+          <div class="flex flex-wrap p-2 align-items-center gap-3">
+            <div class="flex-1 flex flex-column gap-2">
+              <span class="font-bold">{{ user.name | titlecase }}</span>
+            </div>
+          </div>
+        </ng-template>
+      </p-orderList>
     </div>
-    <div>
-      <h3 class="text-2xl font-bold text-orange-600">
-        🎉 Ambiente y Sorpresas
-      </h3>
-      <p class="text-gray-300">
-        Gabiso en vivo, snacks disponibles y muchas sorpresas más. Tirará el
-        dedos algun bolo?!
-      </p>
-    </div>
-    <h2 class="text-4xl font-extrabold text-orange-600">
-      🎳 Lista de participantes
-    </h2>
     @if (authService.authStatus() === "authenticated") {
     <div class="text-center pt-4">
-      <a
-        href="#"
-        class="inline-block bg-orange-600 text-black font-bold py-3 px-6 rounded hover:bg-orange-500 transition"
+      <button
+        (click)="kartingService.registerUserForNextEvent(authService.user()!)"
+        class="inline-block cursor-pointer bg-orange-600 text-black font-bold py-3 px-6 rounded hover:bg-orange-500 transition"
       >
         ¡Inscríbete Ahora!
-      </a>
+      </button>
     </div>
     }
     <div class="text-gray-400">

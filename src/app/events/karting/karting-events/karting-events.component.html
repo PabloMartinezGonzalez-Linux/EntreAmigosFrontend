@@ -1,8 +1,21 @@
 <div class="h-full w-full">
-  <img src="/karting/kart.jpg" alt="" class="w-full">
+  <img src="/karting/kart.jpg" alt="" class="w-full" />
   <div class="flex flex-row items-center justify-between my-5 mx-10">
-    <h1 class="text-4xl font-secondary">eventos</h1>
-    <p-autocomplete [(ngModel)]="value" [dropdown]="true" [suggestions]="items" (completeMethod)="search($event)" />
+    <div class="bg-neutral-600 p-2 w-8/12 rounded text-center">
+      <h1 class="text-4xl font-secondary">eventos de karting</h1>
+    </div>
+    <!-- TODO: Añadir (click) -->
+    <div>
+      <button
+        class="pi pi-send rounded p-3 mr-4 bg-neutral-500 hover:bg-neutral-700 cursor-pointer"
+      ></button>
+      <p-autocomplete
+        [(ngModel)]="value"
+        [dropdown]="true"
+        [suggestions]="items"
+        (completeMethod)="search($event)"
+      />
+    </div>
   </div>
   <app-standard-table
     [tableConfig]="config"
