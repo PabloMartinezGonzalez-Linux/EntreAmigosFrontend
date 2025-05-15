@@ -78,84 +78,21 @@ export const KartingData = [
 
 export const KartingDataClassification: ClassificationDataResponse[] = [
   {
-    event_id: 1,
+    user_id: 1,
     position: 1,
     points: 23,
-    name: "pablo",
+    user_name: "pablo",
     team: "mercedes",
     gap: "-9",
-    bestCircuit: "Granda"
+    best_circuit: "Granda"
   },
   {
-    event_id: 12,
+    user_id: 2,
     position: 1,
     points: 23,
-    name: "pablo",
+    user_name: "pablo",
     team: "mercedes",
     gap: "-9",
-    bestCircuit: "Granda"
+    best_circuit: "Granda"
   },
-  {
-    event_id: 122,
-    position: 1,
-    points: 23,
-    name: "pablo",
-    team: "mercedes",
-    gap: "-9",
-    bestCircuit: "Granda"
-  },
-  {
-    event_id: 31,
-    position: 1,
-    points: 23,
-    name: "pablo",
-    team: "mercedes",
-    gap: "-9",
-    bestCircuit: "Granda"
-  },
-   {
-    event_id: 12,
-    position: 1,
-    points: 23,
-    name: "pablo",
-    team: "mercedes",
-    gap: "-9",
-    bestCircuit: "Granda"
-  },
-  {
-    event_id: 122,
-    position: 1,
-    points: 23,
-    name: "pablo",
-    team: "mercedes",
-    gap: "-9",
-    bestCircuit: "Granda"
-  },
-  {
-    event_id: 31,
-    position: 1,
-    points: 23,
-    name: "pablo",
-    team: "mercedes",
-    gap: "-9",
-    bestCircuit: "Granda"
-  },
-   {
-    event_id: 12,
-    position: 1,
-    points: 23,
-    name: "pablo",
-    team: "mercedes",
-    gap: "-9",
-    bestCircuit: "Granda"
-  },
-  {
-    event_id: 122,
-    position: 1,
-    points: 23,
-    name: "pablo",
-    team: "mercedes",
-    gap: "-9",
-    bestCircuit: "Granda"
-  }
 ]

@@ -1,6 +1,3 @@
-import { User } from "../../../auth/interfaces/user.interface"
-import { ReactiveFormsModule } from '@angular/forms';
-
 export interface EventResponse {
   event_id: number,
   name: string
@@ -22,24 +19,33 @@ export interface LoadDataByEventIdResponse {
   results: DataEventResponse[]
 }
 
+/**
+ * * === === === *
+ */
+
 export interface ClassificationDataResponse{
-  event_id: number,
+  user_id: number,
   position: number,
   points: number,
-  name: string,
+  user_name: string,
   team: string,
   gap: string,
-  bestCircuit: string
+  best_circuit: string
 }
 
 export interface LoadClassificationData {
-  results: ClassificationDataResponse[]
+  result: ClassificationDataResponse[]
+}
+
+export interface BasicUser{
+  id: number,
+  name: string
 }
 
 export interface LoadUsersNextEventResponse {
-  results: User[]
+  result: BasicUser[]
 }
 
 export interface PostNewUserResponse {
-  status: string
+  message: string
 }

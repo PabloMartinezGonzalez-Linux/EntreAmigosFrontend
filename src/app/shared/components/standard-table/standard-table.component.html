@@ -1,5 +1,5 @@
 <div class="mx-10 mb-10">
-  <p-table [value]="data" [tableStyle]="{ 'min-width': '50rem' }">
+  <p-table [value]="tableData" [tableStyle]="{ 'min-width': '50rem' }">
       <ng-template #header>
         <tr>
           @for (col of tableConfig.columns; track col.code) {

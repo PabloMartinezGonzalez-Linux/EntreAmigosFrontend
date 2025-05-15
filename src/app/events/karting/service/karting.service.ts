@@ -1,12 +1,12 @@
 import { computed, inject, Injectable, signal, WritableSignal } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { ClassificationDataResponse, LoadClassificationData, LoadDataByEventIdResponse, LoadEventsResponse, LoadUsersNextEventResponse, PostNewUserResponse } from '../interfaces/karting.interface';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { BasicUser, ClassificationDataResponse, LoadClassificationData, LoadUsersNextEventResponse, PostNewUserResponse } from '../interfaces/karting.interface';
 import { catchError, map, Observable, of, tap } from 'rxjs';
-import { User } from '../../../auth/interfaces/user.interface';
+
 
 @Injectable({providedIn: 'root'})
 export class KartingService {
-  constructor() { }
+  constructor() { this.loadUsersNextEvent().subscribe() }
 
   /**
    * Inyecciones de dependencias de angular
@@ -18,8 +18,8 @@ export class KartingService {
    * - _users: Lista de usuarios del próximo evento
    * - _classification: Tabla de datos de la clasificación
    */
-  private _users: WritableSignal<User[] | null> = signal(null)
-  private _classification: WritableSignal<ClassificationDataResponse[] | null> = signal(null)
+  private _users: WritableSignal<BasicUser[] | null> = signal(null)
+  private _classification: WritableSignal<ClassificationDataResponse[]> = signal([])
 
   /**
    * Computeds que permiten ver el contenido de las signals:
@@ -39,9 +39,17 @@ export class KartingService {
   //   })
   // }
 
-  // loadClassificationData(): Observable<Boolean>{
-  //   return this._http.get<LoadClassificationData>("URL")
-  // }
+  loadClassificationData(): Observable<Boolean>{
+    return this._http.get<LoadClassificationData>("http://localhost:3000/karting/karting-classification").pipe(
+      tap((res) => {
+        if (res.result) {
+          this._classification.set(res.result)
+        }
+      }),
+      map(() => true),
+      catchError((error) => of(false))
+    )
+  }
 
   /**
    * @returns Metodo que devuelve un Observable boolean:
@@ -49,9 +57,11 @@ export class KartingService {
    * - false si recibe un error
    */
   loadUsersNextEvent(): Observable<Boolean>{
-    return this._http.get<LoadUsersNextEventResponse>("URL").pipe(
+    return this._http.get<LoadUsersNextEventResponse>("http://localhost:3000/karting/getUserForNextEvent").pipe(
       tap((res) => {
-        this._users.set(res.results)
+        if(res.result){
+          this._users.set(res.result)
+        }
       }),
       map(() => true),
       catchError((error) => {
@@ -65,11 +75,16 @@ export class KartingService {
    * - true si la respuesta de la api es ok
    * - false si recibe un error
    */
-  registerUserForNextEvent( user: User ): Observable<Boolean>{
-    return this._http.post<PostNewUserResponse>("URL",{
-      user: user
-    }).pipe(
-      map(res => res?.status === "200"),
+  registerUserForNextEvent( user_id: number ): Observable<Boolean>{
+    console.log(user_id)
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    return this._http.post<PostNewUserResponse>("http://localhost:3000/karting/registerUserForNextEvent", {
+      user_id : user_id
+    },{ headers }).pipe(
+      map(res => {
+        this.loadUsersNextEvent().subscribe()
+        return res?.message === "200"
+      }),
       catchError((error) => {
         return of(false)
       })

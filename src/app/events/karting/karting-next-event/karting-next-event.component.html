@@ -26,7 +26,7 @@
         </p>
       </div>
       <p-orderList
-        [value]="users()"
+        [value]="kartingService.users()!"
         [listStyle]="{ height: '25rem', width: '37.5rem' }"
         [dragdrop]="false"
       >
@@ -42,7 +42,7 @@
     @if (authService.authStatus() === "authenticated") {
     <div class="text-center pt-4">
       <button
-        (click)="kartingService.registerUserForNextEvent(authService.user()!)"
+        (click)="registerUser()"
         class="inline-block cursor-pointer bg-orange-600 text-black font-bold py-3 px-6 rounded hover:bg-orange-500 transition"
       >
         ¡Inscríbete Ahora!
