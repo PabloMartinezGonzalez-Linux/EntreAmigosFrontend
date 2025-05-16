@@ -9,7 +9,6 @@ import {
 import { TableConfig } from '../../interfaces/table-config';
 import { ImportsModule } from '../../imports';
 
-
 @Component({
   selector: 'app-standard-table',
   imports: [ImportsModule],
@@ -34,17 +33,19 @@ export class StandardTableComponent implements OnInit {
   }
 
   isFirst(row: any, data: any) {
-    if (!data || !Array.isArray(data()) || data().length === 0) {
+    const dataArray = isSignal(data) ? data() : data;
+
+    if (!dataArray || !Array.isArray(dataArray) || dataArray.length === 0) {
       return 'standard';
     }
-    return this.checkFisrtRow(row, data()) ? 'first' : 'standard';
+
+    return this.checkFisrtRow(row, dataArray) ? 'first' : 'standard';
   }
 
   checkFisrtRow(row: any, data: any) {
     if (data && data[0] && data[0].user_id !== undefined) {
       const firstUserId = data[0].user_id;
       const currentUserId = row.user_id;
-      console.log('Are they equal? ', firstUserId === currentUserId);
       return firstUserId === currentUserId;
     }
     return false;

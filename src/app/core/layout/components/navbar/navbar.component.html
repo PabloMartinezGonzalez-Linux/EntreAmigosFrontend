@@ -8,6 +8,15 @@
     <img class="ml-4" src="logo\Logo.PNG" alt="Logo de la página web EntreAmigos">
   </div>
   <div>
+    @if (authService.user()?.role_id === 1) {
+      <span>
+        <a
+          class="pi pi-wrench cursor-pointer hover:text-orange-600"
+          [routerLink]="['/admin/admin-home']"
+        >
+        </a>
+      </span>
+    }
     <span class="graduate-regular mx-2">
       <a
         [routerLink]="['/']"

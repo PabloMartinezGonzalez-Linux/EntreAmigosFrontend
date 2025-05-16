@@ -7,13 +7,16 @@
     <!-- TODO: Añadir (click) -->
     <div>
       <button
+        (click)="loadEventById()"
         class="pi pi-send rounded p-3 mr-4 bg-neutral-500 hover:bg-neutral-700 cursor-pointer"
       ></button>
       <p-autocomplete
         [(ngModel)]="value"
         [dropdown]="true"
-        [suggestions]="items"
-        (completeMethod)="search($event)"
+        [suggestions]="filteredItems()"
+        (completeMethod)="getAllItems($event)"
+        [optionValue]="'event_id'"
+        [optionLabel]="'name'"
       />
     </div>
   </div>

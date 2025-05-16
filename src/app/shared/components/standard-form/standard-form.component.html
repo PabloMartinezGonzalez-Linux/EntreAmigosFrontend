@@ -1,0 +1,47 @@
+<div class="bg-white text-white flex justify-center items-center w-full">
+  <p-toast position="bottom-right"/>
+  <form
+    autocomplete="off"
+    [formGroup]="form"
+    class="my-10 p-10 rounded-2xl bg-black w-2/5"
+    (submit)="onSubmit()"
+  >
+    <div class="p-3 flex flex-col">
+      <label class="mb-2">Event</label>
+      <select
+        (change)="loadUsers($event)"
+        class="bg-neutral-300 p-2 rounded text-black cursor-pointer"
+        formControlName="event_id"
+      >
+        @for (event of sportServiceType.events(); track $index) {
+          <option [value]="event.event_id" class="bg-neutral-500">{{ event.name }}</option>
+        }
+      </select>
+    </div>
+    <div class="p-3 flex flex-col">
+      <label class="mb-2">User</label>
+      <select
+        class="bg-neutral-300 p-2 rounded text-black cursor-pointer"
+        formControlName = "user_id"
+      >
+        @for (eventsById of sportServiceType.eventsById(); track $index) {
+          <option [value]="eventsById.user_id" class="bg-neutral-500">{{ eventsById.user_name }}</option>
+        }
+      </select>
+    </div>
+    @for (data of getInputs(); track $index;) {
+    <div class="p-3 flex flex-col">
+      <label class="mb-2">{{ data.name | titlecase }}</label>
+      <input
+        [type]="data.type"
+        [formControlName]="data.name"
+        [placeholder]="data.name"
+        class="bg-neutral-300 p-2 rounded  text-black"
+      />
+    </div>
+    }
+    <div class="w-full text-center my-4">
+      <button type="submit" class="bg-orange-600 rounded p-2 w-4/5 cursor-pointer hover:bg-orange-700">Submit</button>
+    </div>
+  </form>
+</div>

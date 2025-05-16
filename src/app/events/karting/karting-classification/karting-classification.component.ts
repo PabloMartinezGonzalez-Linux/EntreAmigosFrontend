@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject, WritableSignal } from '@angular/core';
 import { KartingConfigClassification } from '../table-config/karting-config';
-import { KartingDataClassification } from '../table-config/mockup';
 import { StandardTableComponent } from '../../../shared/components/standard-table/standard-table.component';
 import { KartingService } from '../service/karting.service';
 import { ClassificationDataResponse } from '../interfaces/karting.interface';

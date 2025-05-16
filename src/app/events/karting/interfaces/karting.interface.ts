@@ -4,24 +4,20 @@ export interface EventResponse {
 }
 
 export interface LoadEventsResponse {
-  results: EventResponse[]
+  result: EventResponse[]
 }
 
-export interface DataEventResponse{
-  event_id: number,
+export interface EventResponseById{
+  user_id: number,
   position: number,
-  name: string,
+  user_name: string,
   quickLap: string,
   averageTime: string
 }
 
 export interface LoadDataByEventIdResponse {
-  results: DataEventResponse[]
+  result: EventResponseById[]
 }
-
-/**
- * * === === === *
- */
 
 export interface ClassificationDataResponse{
   user_id: number,
