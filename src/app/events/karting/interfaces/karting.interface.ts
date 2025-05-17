@@ -1,6 +1,9 @@
 export interface EventResponse {
-  event_id: number,
-  name: string
+  event_id?: number,
+  name: string,
+  sport_type: string,
+  event_date: string,
+  is_future: boolean
 }
 
 export interface LoadEventsResponse {
