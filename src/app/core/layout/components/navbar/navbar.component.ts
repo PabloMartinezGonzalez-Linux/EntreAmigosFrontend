@@ -28,80 +28,93 @@ export class NavbarComponent implements OnInit{
   authService = inject(AuthService)
 
   items: MenuItem[] | undefined;
+  tools: MenuItem[] | undefined;
 
   constructor(private router: Router, private confirmationService: ConfirmationService, private messageService: MessageService){}
 
   ngOnInit() {
     this.items = [
-      {
-        icon: 'pi pi-list',
-        label: 'Deportes',
-        items: [
-          {
-            icon: 'pi pi-plus',
-            label: 'Karting',
-            items: [
-              {
-                command: () => this.router.navigate(['/sports/karting/events']),
-                icon:'pi pi-bars',
-                label: 'Eventos',
-              },
-              {
-                command: () => this.router.navigate(['/sports/karting/next-event']),
-                icon:'pi pi-calendar-clock',
-                label: 'Próximo Evento',
-              },
-              {
-                command: () => this.router.navigate(['/sports/karting/classification']),
-                icon:'pi pi-crown',
-                label: 'Clasificación',
+        {
+          icon: 'pi pi-plus',
+          label: 'Karting',
+          items: [
+            {
+              command: () => this.router.navigate(['/sports/karting/events']),
+              icon:'pi pi-bars',
+              label: 'Eventos',
+            },
+            {
+              command: () => this.router.navigate(['/sports/karting/next-event']),
+              icon:'pi pi-calendar-clock',
+              label: 'Próximo Evento',
+            },
+            {
+              command: () => this.router.navigate(['/sports/karting/classification']),
+              icon:'pi pi-crown',
+              label: 'Clasificación',
 
-              }
-            ]
-          },
-          {
-            icon: 'pi pi-plus',
-            label: 'Bolos',
-            items: [
-              {
-                command: () => this.router.navigate(['/sports/bowling/events']),
-                icon:'pi pi-bars',
-                label: 'Eventos',
-              },
-              {
-                command: () => this.router.navigate(['/sports/bowling/next-event']),
-                icon:'pi pi-calendar-clock',
-                label: 'Próximo Evento',
-              },
-              {
-                command: () => this.router.navigate(['/sports/bowling/classification']),
-                icon:'pi pi-crown',
-                label: 'Clasificación',
-              }
-            ]
-          },
-          {
-            icon: 'pi pi-plus',
-            label: 'Pádel',
-            items: [
-              {
-                command: () => this.router.navigate(['/sports/padel/events']),
-                icon:'pi pi-bars',
-                label: 'Eventos',
-              },
-              {
-                command: () => this.router.navigate(['/sports/padel/next-event']),
-                icon:'pi pi-calendar-clock',
-                label: 'Próximo Evento',
-              },
-              {
-                command: () => this.router.navigate(['/sports/padel/classification']),
-                icon:'pi pi-crown',
-                label: 'Clasificación',
-              }
-            ]
-          }
-      ]
+            }
+          ]
+        },
+        {
+          icon: 'pi pi-plus',
+          label: 'Bolos',
+          items: [
+            {
+              command: () => this.router.navigate(['/sports/bowling/events']),
+              icon:'pi pi-bars',
+              label: 'Eventos',
+            },
+            {
+              command: () => this.router.navigate(['/sports/bowling/next-event']),
+              icon:'pi pi-calendar-clock',
+              label: 'Próximo Evento',
+            },
+            {
+              command: () => this.router.navigate(['/sports/bowling/classification']),
+              icon:'pi pi-crown',
+              label: 'Clasificación',
+            }
+          ]
+        },
+        {
+          icon: 'pi pi-plus',
+          label: 'Pádel',
+          items: [
+            {
+              command: () => this.router.navigate(['/sports/padel/events']),
+              icon:'pi pi-bars',
+              label: 'Eventos',
+            },
+            {
+              command: () => this.router.navigate(['/sports/padel/next-event']),
+              icon:'pi pi-calendar-clock',
+              label: 'Próximo Evento',
+            },
+            {
+              command: () => this.router.navigate(['/sports/padel/classification']),
+              icon:'pi pi-crown',
+              label: 'Clasificación',
+            }
+          ]
+        }
+      ];
+
+    this.tools = [
+      {
+        icon: 'pi pi-pencil',
+        label: 'Resultados',
+        command: () => this.router.navigate(['/admin/updateEventResults'])
+      },
+      {
+        icon: 'pi pi-book',
+        label: 'Eventos',
+        command: () => this.router.navigate(['/admin/updateEvents'])
+      },
+      {
+        icon: 'pi pi-users',
+        label: 'Usuarios',
+        command: () => this.router.navigate(['/admin/adminUsers'])
       }
     ];
   }

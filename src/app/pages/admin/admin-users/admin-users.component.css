@@ -1,0 +1,26 @@
+:host {
+  display: block;
+}
+
+.fondo{
+  background-image: url("../../../../../public/admin/fondo.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+::ng-deep p-orderList .p-orderlist-controls {
+  display: none !important;
+}
+
+::ng-deep p-orderList .p-orderlist-controls .p-orderlist-button {
+  display: none !important;
+}
+
+::ng-deep p-orderList .p-orderlist-buttons {
+  display: none !important;
+}
+
+::ng-deep .p-listbox-list-container {
+  overflow: auto;
+  max-height: 30rem !important;
+}

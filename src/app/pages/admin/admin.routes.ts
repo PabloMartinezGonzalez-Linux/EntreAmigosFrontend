@@ -9,12 +9,12 @@ export const adminRoutes: Routes = [
         loadComponent: () => import ('./update-event-result/update-event-result.component').then((m) => m.AdminComponent)
       },
       {
-        path:'adminHome',
-        loadComponent: () => import ('./admin-home/admin-home.component').then((m) => m.AdminHomeComponent)
-      },
-      {
         path:'updateEvents',
         loadComponent: () => import ('./update-events/update-events.component').then((m) => m.UpdateEventsComponent)
+      },
+      {
+        path:'adminUsers',
+        loadComponent: () => import ('./admin-users/admin-users.component').then((m) => m.AdminUsersComponent)
       },
       {
         path:'**',

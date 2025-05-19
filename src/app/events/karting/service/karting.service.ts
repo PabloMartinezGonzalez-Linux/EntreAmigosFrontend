@@ -34,8 +34,7 @@ export class KartingService {
    * Signals que almacenan las respuestas de la API
    */
   private _users: WritableSignal<BasicUser[] | null> = signal(null);
-  private _classification: WritableSignal<ClassificationDataResponse[]> =
-    signal([]);
+  private _classification: WritableSignal<ClassificationDataResponse[]> = signal([]);
   private _events: WritableSignal<EventResponse[]> = signal([]);
   private _eventsById: WritableSignal<EventResponseById[]> = signal([]);
 
@@ -109,6 +108,24 @@ export class KartingService {
         }),
         map(() => true),
         catchError((error) => of(false))
+      );
+  }
+
+  loadAllUsers(): Observable<Boolean> {
+    return this._http
+      .get<LoadUsersNextEventResponse>(
+        'http://localhost:3000/karting/getUserForNextEvent'
+      )
+      .pipe(
+        tap((res) => {
+          if (res.result) {
+            this._users.set(res.result);
+          }
+        }),
+        map(() => true),
+        catchError((error) => {
+          return of(false);
+        })
       );
   }
 
@@ -208,7 +225,6 @@ export class KartingService {
     if (body.event_id == null) {
       delete body.event_id;
     }
-    console.log(body)
     return this._http
       .post<PostNewUserResponse>(
         'http://localhost:3000/karting/upsertEvent',

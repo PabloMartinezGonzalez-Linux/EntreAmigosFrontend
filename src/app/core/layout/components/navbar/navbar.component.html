@@ -2,21 +2,12 @@
   <!-- Menu -->
   <div #lqs class="relative w-30 flex flex-row">
     <div>
-      <p-tiered-menu #menu [model]="items" [popup]="true" appendTo="lqs" class="absolute left-0 mt-11" />
+      <p-tiered-menu #menu [model]="items" [popup]="true" appendTo="lqs" class="absolute left-0 mt-12" />
       <p-button class="p-button-accent" (click)="menu.toggle($event)" icon="pi pi-bars"/>
     </div>
     <img class="ml-4" src="logo\Logo.PNG" alt="Logo de la página web EntreAmigos">
   </div>
-  <div>
-    @if (authService.user()?.role_id === 1) {
-      <span>
-        <a
-          class="pi pi-wrench cursor-pointer hover:text-orange-600"
-          [routerLink]="['/admin/admin-home']"
-        >
-        </a>
-      </span>
-    }
+  <div class="flex justify-center items-center">
     <span class="graduate-regular mx-2">
       <a
         [routerLink]="['/']"
@@ -59,6 +50,14 @@
             <i class="pi pi-sign-out"></i>
           </div>
         </p-button>
+      </span>
+    }
+    @if (authService.user()?.role_id === 1) {
+      <span #lqs2 class="mx-2">
+        <div>
+          <p-tiered-menu #menu2 [model]="tools" [popup]="true" appendTo="lqs2" class="absolute right-55 mt-12" />
+          <p-button class="p-button-accent" (click)="menu2.toggle($event)" icon="pi pi-cog"/>
+        </div>
       </span>
     }
   </div>

@@ -32,7 +32,6 @@ export class UpdateEventsComponent {
     is_future : [false, Validators.required]
   })
 
-
   onSubmit(){
     if (this.eventsForm.invalid) {
       return;
@@ -44,7 +43,6 @@ export class UpdateEventsComponent {
 
     this.kartinService.upsertEvent(params).subscribe((canUpsert) => {
       if (canUpsert) {
-        console.log("000-Upsert")
         this.eventsForm.reset({ is_future: false });
       }
     })

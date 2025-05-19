@@ -10,10 +10,8 @@ import {
   FormBuilder,
   FormGroup,
   ReactiveFormsModule,
-  Validators,
 } from '@angular/forms';
 import { TitleCasePipe } from '@angular/common';
-import { KartingService } from '../../../events/karting/service/karting.service';
 import { MessageService } from 'primeng/api';
 import { FormService } from '../../services/form.service';
 import { SportService } from '../../services/sport.service';
@@ -89,6 +87,4 @@ export class StandardFormComponent implements OnInit{
       }
     })
   }
-
-
 }
