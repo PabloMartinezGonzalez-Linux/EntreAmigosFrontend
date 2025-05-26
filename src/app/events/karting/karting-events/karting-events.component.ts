@@ -36,7 +36,7 @@ export class KartingEventsComponent {
 
   filteredItems: WritableSignal<EventResponse[]> = signal([]);
   items: WritableSignal<EventResponse[]> = signal([]);
-  value: number = 0;
+  value: number = 5;
 
   loadEvents(): void{
     this.kartingService.loadEvents().subscribe((canLoad) => {

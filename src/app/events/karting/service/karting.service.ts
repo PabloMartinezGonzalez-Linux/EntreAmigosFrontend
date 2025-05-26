@@ -111,6 +111,11 @@ export class KartingService {
       );
   }
 
+  /**
+   * @returns Devuelve un Observable boolean:
+   * - true si la respuesta de la api es ok
+   * - false si recibe un error
+   */
   loadAllUsers(): Observable<Boolean> {
     return this._http
       .get<LoadUsersNextEventResponse>(
@@ -158,7 +163,6 @@ export class KartingService {
    * - false si recibe un error
    */
   registerUserForNextEvent(user_id: number): Observable<Boolean> {
-    console.log(user_id);
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
     return this._http
       .post<PostNewUserResponse>(
@@ -240,4 +244,14 @@ export class KartingService {
         })
       );
   }
+
+  cancelRegisterUserForNextEvent(user_id: number): Observable<boolean>{
+    return this._http.delete<PostNewUserResponse>(`http://localhost:3000/karting/cancelRegisterUserForNextEvent/${user_id}`).pipe(
+      map(() => true),
+      catchError((error) => {
+        return of(false)
+      })
+    )
+  }
+
 }

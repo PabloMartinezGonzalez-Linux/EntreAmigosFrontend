@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, computed, WritableSignal, signal } from '@angular/core';
 import { catchError, map, Observable, of, tap } from 'rxjs';
 import { User } from '../../auth/interfaces/user.interface';
-import { LoadAllUsers } from '../interfaces/admin.interface';
+import { DeleteUser, LoadAllUsers } from '../interfaces/admin.interface';
 import { ResizableColumn } from 'primeng/table';
 
 @Injectable({
@@ -25,6 +25,19 @@ export class AdminService {
       map(() => true),
       catchError((error) => {
         return of(false)
+      })
+    )
+  }
+
+  deleteUser(user_id: number): Observable<boolean>{
+    return this._http.delete<DeleteUser>(`http://localhost:3000/admin/deleteUser/${user_id}`).pipe(
+      tap((res) => {
+        console.log(res.message)
+        this.loadAllUsers()
+      }),
+      map(() => true),
+      catchError((error) => {
+        return of (false)
       })
     )
   }

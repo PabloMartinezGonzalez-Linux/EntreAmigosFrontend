@@ -19,6 +19,7 @@ import { ImportsModule } from '../../imports';
 export class StandardTableComponent implements OnInit {
   @Input() tableConfig: TableConfig = { columns: [] };
   @Input() data!: Signal<any[]> | any[];
+  @Input() admin: boolean = false
 
   get tableData(): any[] {
     return isSignal(this.data) ? this.data() : this.data;

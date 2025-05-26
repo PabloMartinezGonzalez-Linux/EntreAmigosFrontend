@@ -1,19 +1,21 @@
 <div>
-  <h1 class="font-secondary w-full text-center text-4xl pb-5">administrar usuarios</h1>
+  <h1 class="font-secondary w-full text-center text-4xl pb-5">
+    administrar usuarios
+  </h1>
 </div>
 <div class="h-screen w-full flex justify-center items-center fondo">
-  <p-orderList
-    [value]="adminService.users()!"
-    [listStyle]="{ height: '50rem', width: '37.5rem' }"
-    [dragdrop]="false"
-  >
-    <ng-template let-user pTemplate="item">
-      <div class="w-full flex flex-wrap p-2 items-center justify-center gap-3">
-        <div class="flex-1 flex flex-column justify-around gap-2">
-          <span class="font-bold flex justify-center items-center">{{ user.name | titlecase }}</span>
-          <button class="btn btn-error">Eliminar</button>
-        </div>
+  <p-toast position="bottom-right" />
+  <div class="bg-black h-80 w-2/4 3xl:w-1/3 rounded-xl p-10 overflow-y-scroll">
+    @for (user of adminService.users()!; track user.id) {
+      <div class="hover:bg-neutral-800 flex items-center justify-between h-12 p-5 text-xl">
+        <p>{{ user.name | titlecase }}</p>
+        <button
+          class="cursor-pointer btn btn-error"
+          (click)="deleteUser(user.id)"
+        >
+          Eliminar
+        </button>
       </div>
-    </ng-template>
-  </p-orderList>
+    }
+  </div>
 </div>

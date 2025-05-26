@@ -12,14 +12,22 @@
   color: orangered;
 }
 
-:host ::ng-deep {
-  .p-confirmpopup .p-confirmpopup:after,.p-confirmpopup .p-confirmpopup:before {
+::ng-deep .p-confirmpopup:before {
     bottom: 100%;
-    left: 14rem !important;
+    left: 13rem !important;
     content: " ";
     height: 0;
     width: 0;
     position: absolute;
     pointer-events: none;
-  }
+}
+
+::ng-deep .p-confirmpopup:after {
+    bottom: 100%;
+    left: 13rem !important;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
 }
