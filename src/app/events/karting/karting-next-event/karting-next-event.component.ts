@@ -23,7 +23,6 @@ import { User } from '../../../auth/interfaces/user.interface';
 export class KartingNextEventComponent implements OnInit {
   authService = inject(AuthService);
   kartingService = inject(KartingService);
-  myId = this.authService.user()!.id;
 
   nextEventStatus: WritableSignal<boolean> = signal(false);
 
@@ -32,8 +31,9 @@ export class KartingNextEventComponent implements OnInit {
   }
 
   registerUser(): void {
+    const myId = this.authService.user()!.id;
     this.kartingService
-      .registerUserForNextEvent(this.myId)
+      .registerUserForNextEvent(myId)
       .pipe(
         switchMap(() => this.kartingService.loadAllUsers()),
         tap(canLoad => {
@@ -44,8 +44,9 @@ export class KartingNextEventComponent implements OnInit {
   }
 
   cancelUserRegister(): void {
+    const myId = this.authService.user()!.id;
     this.kartingService
-      .cancelRegisterUserForNextEvent(this.myId)
+      .cancelRegisterUserForNextEvent(myId)
       .pipe(
         switchMap(() => this.kartingService.loadAllUsers()),
         tap(canLoad => {
@@ -65,7 +66,8 @@ export class KartingNextEventComponent implements OnInit {
   }
 
   updateNextEventStatus(): void {
-    const registered = this.kartingService.users()?.some(u => u.id === this.myId) ?? false;
+    const myId = this.authService.user()!.id;
+    const registered = this.kartingService.users()?.some(u => u.id === myId) ?? false;
     this.nextEventStatus.set(registered);
   }
 

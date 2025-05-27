@@ -9,6 +9,7 @@
         (click)="loadEventById()"
         class="pi pi-send rounded p-3 mr-4 bg-neutral-500 hover:bg-neutral-700 cursor-pointer"
       ></button>
+      <!-- TODO: Implementar formulario reactivo -->
       <p-autocomplete
         [(ngModel)]="value"
         [dropdown]="true"
@@ -16,6 +17,7 @@
         (completeMethod)="getAllItems($event)"
         [optionValue]="'event_id'"
         [optionLabel]="'name'"
+        [readonly]="true"
       />
     </div>
   </div>

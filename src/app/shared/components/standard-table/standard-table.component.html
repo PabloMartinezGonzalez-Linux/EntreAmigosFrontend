@@ -1,18 +1,29 @@
 <div class="mx-10 mb-10">
-  <p-table [value]="tableData" [tableStyle]="{ 'min-width': '50rem' }">
-      <ng-template #header>
-        <tr>
-          @for (col of tableConfig.columns; track col.code) {
-            <td class="text-black px-4 py-2 standard">{{ col.label }}</td>
-          }
-        </tr>
-      </ng-template>
-      <ng-template #body let-row>
-        <tr [ngClass]=" isFirst(row, data) ">
-          @for (col of tableConfig.columns; track col.code; let isFirst = $first) {
-            <td>{{ row[col.code] }}</td>
-          }
-        </tr>
-      </ng-template>
+  <p-table
+    [value]="tableData"
+    [tableStyle]="{ 'min-width': '50rem' }"
+    [sortOrder]="1"
+    [sortField]="'position'"
+  >
+    <ng-template #header>
+      <tr>
+        @for (col of tableConfig.columns; track col.code) {
+          <th
+            class="text-black px-4 py-2 standard"
+            pSortableColumn="{{col.code}}"
+          >
+            {{ col.label }}
+            <p-sortIcon field="{{col.code}}"></p-sortIcon>
+          </th>
+        }
+      </tr>
+    </ng-template>
+    <ng-template #body let-row>
+      <tr [ngClass]="isFirst(row, data)">
+        @for (col of tableConfig.columns; track col.code; let isFirst = $first){
+          <td>{{ row[col.code] }}</td>
+        }
+      </tr>
+    </ng-template>
   </p-table>
 </div>

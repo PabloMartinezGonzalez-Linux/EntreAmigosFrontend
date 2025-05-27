@@ -209,8 +209,9 @@ export class KartingService {
         { headers }
       )
       .pipe(
+        tap((err) => console.log(err)),
         map((res) => {
-          return res?.message === '200';
+          return res?.message === 'Result updated successfully.';
         }),
         catchError((error) => {
           return of(false);

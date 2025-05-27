@@ -16,6 +16,7 @@ export interface EventResponseById{
   user_name: string,
   quickLap: string,
   averageTime: string
+  points: number
 }
 
 export interface LoadDataByEventIdResponse {
