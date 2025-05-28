@@ -1,6 +1,7 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  inject,
   Input,
   isSignal,
   OnInit,
@@ -8,6 +9,7 @@ import {
 } from '@angular/core';
 import { TableConfig } from '../../interfaces/table-config';
 import { ImportsModule } from '../../imports';
+import { AuthService } from '../../../auth/service/auth.service';
 
 @Component({
   selector: 'app-standard-table',
@@ -17,17 +19,19 @@ import { ImportsModule } from '../../imports';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StandardTableComponent implements OnInit {
+
+  constructor() {}
+
+  authService = inject(AuthService)
+
   @Input() tableConfig: TableConfig = { columns: [] };
   @Input() data!: Signal<any[]> | any[];
-  @Input() admin: boolean = false
+
+  isClassification: boolean = false;
 
   get tableData(): any[] {
     return isSignal(this.data) ? this.data() : this.data;
   }
-
-  isClassification: boolean = false;
-
-  constructor() {}
 
   ngOnInit(): void {
     this.isClassification = this.tableConfig.isClassification ?? false;

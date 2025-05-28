@@ -66,9 +66,11 @@ export class KartingNextEventComponent implements OnInit {
   }
 
   updateNextEventStatus(): void {
-    const myId = this.authService.user()!.id;
-    const registered = this.kartingService.users()?.some(u => u.id === myId) ?? false;
-    this.nextEventStatus.set(registered);
+    if (this.authService.authStatus() === "authenticated"){
+      const myId = this.authService.user()!.id;
+      const registered = this.kartingService.users()?.some(u => u.id === myId) ?? false;
+      this.nextEventStatus.set(registered);
+    }
   }
 
 }

@@ -1,11 +1,27 @@
-<nav class="bg-black text-white flex flex-row items-center justify-between px-4 py-3 fixed top-0 right-0 left-0 z-10">
+<nav
+  class="bg-black text-white flex flex-row items-center justify-between px-4 py-3 fixed top-0 right-0 left-0 z-10"
+>
   <!-- Menu -->
   <div #lqs class="relative w-30 flex flex-row">
     <div>
-      <p-tiered-menu #menu [model]="items" [popup]="true" appendTo="lqs" class="absolute left-0 mt-12" />
-      <p-button class="p-button-accent" (click)="menu.toggle($event)" icon="pi pi-bars"/>
+      <p-tiered-menu
+        #menu
+        [model]="items"
+        [popup]="true"
+        appendTo="lqs"
+        class="absolute left-0 mt-12"
+      />
+      <p-button
+        class="p-button-accent"
+        (click)="menu.toggle($event)"
+        icon="pi pi-bars"
+      />
     </div>
-    <img class="ml-4" src="logo\Logo.PNG" alt="Logo de la página web EntreAmigos">
+    <img
+      class="ml-4"
+      src="logo\Logo.PNG"
+      alt="Logo de la página web EntreAmigos"
+    />
   </div>
   <div class="flex justify-center items-center">
     <span class="graduate-regular mx-2">
@@ -14,51 +30,65 @@
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
         class="hover:text-orange-600"
-        >
-          home
-        </a>
+      >
+        home
+      </a>
     </span>
     @if (authService.authStatus() !== "authenticated") {
-      <span class="graduate-regular mx-2">
-        <a
-          [routerLink]="['auth/login']"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }"
-          class="hover:text-orange-600"
-        >
-          login
-        </a>
-      </span>
-    }
-    @if (authService.authStatus() === "authenticated") {
-      <span>
-        <p-toast position="bottom-right"/>
-        <p-confirmpopup #cp class="prueba">
-            <ng-template #headless let-message>
-                <div class="rounded p-4">
-                    <span>{{ message.message }}</span>
-                    <div class="flex items-center gap-2 mt-4">
-                        <p-button (onClick)="cp.onAccept()" label="Logout" size="small" />
-                        <p-button (onClick)="cp.onReject()" label="Cancel" [text]="true" size="small" severity="secondary" />
-                    </div>
-                </div>
-            </ng-template>
-        </p-confirmpopup>
-        <p-button class="font-secondary" (onClick)="confirm($event)">
-          <div class="flex items-center flex-row gap-2">
-            <span>{{ authService.user()?.name }}</span>
-            <i class="pi pi-sign-out"></i>
+    <span class="graduate-regular mx-2">
+      <a
+        [routerLink]="['auth/login']"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="hover:text-orange-600"
+      >
+        login
+      </a>
+    </span>
+    } @if (authService.authStatus() === "authenticated") {
+    <span>
+      <p-toast position="bottom-right" />
+      <p-confirmpopup #cp class="prueba">
+        <ng-template #headless let-message>
+          <div class="rounded p-4">
+            <span>{{ message.message }}</span>
+            <div class="flex items-center gap-2 mt-4">
+              <p-button (onClick)="cp.onAccept()" label="Logout" size="small" />
+              <p-button
+                (onClick)="cp.onReject()"
+                label="Cancel"
+                [text]="true"
+                size="small"
+                severity="secondary"
+              />
+            </div>
           </div>
-        </p-button>
-      </span>
-    }
-    @if (authService.user()?.role_id === 1) {
-      <span #lqs2 class="mx-2">
-        <div>
-          <p-tiered-menu #menu2 [model]="tools" [popup]="true" appendTo="lqs2" class="absolute right-55 mt-12" />
-          <p-button class="p-button-accent" (click)="menu2.toggle($event)" icon="pi pi-cog"/>
+        </ng-template>
+      </p-confirmpopup>
+      <p-button class="font-secondary" (onClick)="confirm($event)">
+        <div class="flex items-center flex-row gap-2">
+          <span>{{ authService.user()?.name }}</span>
+          <i class="pi pi-sign-out"></i>
         </div>
-      </span>
+      </p-button>
+    </span>
+    } @if (authService.authStatus() === "authenticated") {
+    <span #lqs2 class="mx-2">
+      <div>
+        <p-tiered-menu
+          #menu2
+          [model]="tools()"
+          [popup]="true"
+          appendTo="lqs2"
+          class="absolute right-55 mt-12"
+        />
+        <p-button
+          class="p-button-accent"
+          (click)="menu2.toggle($event)"
+          icon="pi pi-cog"
+        />
+      </div>
+    </span>
     }
   </div>
 </nav>

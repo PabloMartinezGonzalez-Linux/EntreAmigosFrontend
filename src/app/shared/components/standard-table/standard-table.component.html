@@ -21,7 +21,14 @@
     <ng-template #body let-row>
       <tr [ngClass]="isFirst(row, data)">
         @for (col of tableConfig.columns; track col.code; let isFirst = $first){
-          <td>{{ row[col.code] }}</td>
+          @if (row.user_id === authService.user()?.id && col.code === "position") {
+            <td>
+              {{ row[col.code] }}
+              <span class="px-2 pi pi-user text-orange-600 "></span>
+            </td>
+          } @else {
+            <td>{{ row[col.code] }}</td>
+          }
         }
       </tr>
     </ng-template>

@@ -1,9 +1,10 @@
 import { computed, inject, Injectable, signal } from '@angular/core';
-import { User } from '../interfaces/user.interface';
+import { UpdateUser, User } from '../interfaces/user.interface';
 import { HttpClient } from '@angular/common/http';
 import { rxResource } from '@angular/core/rxjs-interop'
 import { AuthResponse } from '../interfaces/auth.response.interface';
 import { catchError, map, Observable, of, tap } from 'rxjs';
+import { DeleteUser } from '../../shared/interfaces/admin.interface';
 
 type AuthStatus = 'checking' | 'authenticated' | 'not-authenticated'
 
@@ -37,6 +38,7 @@ export class AuthService {
     }).pipe(
       tap(res => {
         this._user.set(res.user)
+        console.log(this.user())
         this._token.set(res.token)
         this._authStatus.set('authenticated')
         localStorage.setItem("token", res.token)
@@ -98,5 +100,10 @@ export class AuthService {
 
     localStorage.removeItem("token")
   }
+
+  // TODO: Put a tabla de users con nuevos valores
+  // updateUserInfo(user: UpdateUser): Observable<boolean>{
+  //   return this._http.put<DeleteUser>()
+  // }
 }
 

@@ -17,6 +17,10 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/contact/contact.component').then((m) => m.ContactComponent)
   },
   {
+    path:'profile',
+    loadComponent: () => import('./pages/profile/profile.component').then((m) => m.ProfileComponent)
+  },
+  {
     path:'auth',
     loadChildren: () => import('./auth/auth.routes').then((m) => m.authRoutes),
     canMatch: [
