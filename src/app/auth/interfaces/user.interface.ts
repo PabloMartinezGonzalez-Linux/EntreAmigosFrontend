@@ -6,13 +6,13 @@ export interface User {
   address?: string,
   age?: number,
   gender?: string,
-  phoneNumber?: string
+  phone_number?: string
 }
 
 export interface UpdateUser {
-  name: string,
-  address?: string,
-  age?: number,
-  gender?: string,
-  phoneNumber?: string
+  name?: string | null,
+  address?: string | null,
+  age?: number | null,
+  gender?: string | null,
+  phone_number?: string | null
 }

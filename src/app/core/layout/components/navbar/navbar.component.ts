@@ -161,6 +161,7 @@ export class NavbarComponent implements OnInit {
         });
         setTimeout(() => {
           this.authService.logOut();
+          this.router.navigateByUrl("/")
         }, 1500);
       },
       reject: () => {},

@@ -1,9 +1,12 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ImportsModule } from '../../shared/imports';
 import { AuthService } from '../../auth/service/auth.service';
 import { adminRoutes } from '../admin/admin.routes';
 import { MessageService } from 'primeng/api';
+import { UpdateUser, User } from '../../auth/interfaces/user.interface';
+import { ControlProfileForm } from './profile.config';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-profile',
@@ -13,19 +16,30 @@ import { MessageService } from 'primeng/api';
   styleUrl: './profile.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProfileComponent {
+export class ProfileComponent implements OnInit, OnDestroy{
   constructor(private messageService: MessageService) {}
 
   fb = inject(FormBuilder);
   authService = inject(AuthService);
+  controlProfileForm = ControlProfileForm
 
   profileForm = this.fb.group({
-    name: [this.authService.user()?.name],
-    address: [this.authService.user()?.address],
-    age: [this.authService.user()?.age],
-    gender: [this.authService.user()?.gender],
-    phone_number: [this.authService.user()?.phoneNumber],
+    [this.controlProfileForm.NAME]: [null],
+    [this.controlProfileForm.ADDRESS]: [null],
+    [this.controlProfileForm.AGE]: [null],
+    [this.controlProfileForm.GENDER]: [null],
+    [this.controlProfileForm.PHONE_NUMBER]: [null],
   });
+
+  ngOnInit(): void {
+    this.authService.getUpdateUSer().pipe(
+      filter((data) => !! data),
+    ).subscribe((data) => {
+      if (data) {
+        this.profileForm.patchValue(data)
+      }
+    })
+  }
 
   show() {
     this.messageService.add({
@@ -36,8 +50,24 @@ export class ProfileComponent {
     });
   }
 
+  error() {
+    this.messageService.add({
+      severity: 'error',
+      summary: 'Erorr',
+      detail: 'Error al actualizar',
+      life: 3000,
+    });
+  }
+
   onSubmit() {
     if (this.profileForm.invalid) return;
-    this.show()
+    const userInfo: UpdateUser = this.profileForm.value
+    this.authService.updateUserInfo(userInfo).subscribe(canUpdate => {
+      canUpdate ? this.show() : this.error()
+    })
+  }
+
+  ngOnDestroy(): void {
+    this.authService.getUpdateUSer().unsubscribe()
   }
 }

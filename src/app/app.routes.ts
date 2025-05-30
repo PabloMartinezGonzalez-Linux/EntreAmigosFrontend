@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { AuthGuard } from './auth/guards/auth.guard';
 import { AdminGuard } from './auth/guards/admin.guard';
+import { ProfileGuard } from './auth/guards/profile.guard';
 
 export const routes: Routes = [
   {
@@ -18,7 +19,10 @@ export const routes: Routes = [
   },
   {
     path:'profile',
-    loadComponent: () => import('./pages/profile/profile.component').then((m) => m.ProfileComponent)
+    loadComponent: () => import('./pages/profile/profile.component').then((m) => m.ProfileComponent),
+    canMatch:[
+      ProfileGuard
+    ]
   },
   {
     path:'auth',
