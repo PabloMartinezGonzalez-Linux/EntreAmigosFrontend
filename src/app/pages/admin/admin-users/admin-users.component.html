@@ -5,17 +5,53 @@
 </div>
 <div class="h-screen w-full flex justify-center items-center fondo">
   <p-toast position="bottom-right" />
-  <div class="bg-black h-80 w-2/4 3xl:w-1/3 rounded-xl p-10 overflow-y-scroll">
-    @for (user of adminService.users()!; track user.id) {
-      <div class="hover:bg-neutral-800 flex items-center justify-between h-12 p-5 text-xl">
-        <p>{{ user.name | titlecase }}</p>
-        <button
-          class="cursor-pointer btn btn-error"
-          (click)="deleteUser(user.id)"
-        >
-          Eliminar
-        </button>
-      </div>
-    }
+  <div class="w-3/4 max-h-3/4 overflow-y-scroll">
+    <p-table
+      [columns]="cols"
+      [value]="(users$ | async) ?? []"
+      [tableStyle]="{ 'min-width': '50rem' }"
+      class="rounded-xl!"
+    >
+      <ng-template #header let-columns>
+        <tr>
+          <th *ngFor="let col of columns" class="bg-orange-600!">
+            {{ col.header }}
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template #body let-rowData let-columns="columns">
+        <tr class="bg-black!">
+          <td *ngFor="let col of columns">
+            @if (col.field === "delete" && rowData.id !== 4) {
+              <button
+                class="btn bg-neutral-600! hover:bg-orange-600!"
+                (click)="deleteUser(rowData.id)"
+              >
+                Delete
+              </button>
+            } @if (col.field === "role_id") {
+              <select (change)="changeUserRole($event.target, rowData.id)">
+                <option
+                  value="1"
+                  class="bg-black"
+                  [selected]="rowData.role_id === 1"
+                >
+                  Admin
+                </option>
+                <option
+                  value="2"
+                  class="bg-black"
+                  [selected]="rowData.role_id === 2"
+                >
+                  User
+                </option>
+              </select>
+            } @else {
+             {{ rowData[col.field] }}
+            }
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
   </div>
 </div>

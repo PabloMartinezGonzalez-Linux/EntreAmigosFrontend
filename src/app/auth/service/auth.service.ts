@@ -12,7 +12,6 @@ type AuthStatus = 'checking' | 'authenticated' | 'not-authenticated';
 export class AuthService {
   private _authStatus = signal<AuthStatus>('checking');
   private _user = signal<User | null>(null);
-  // private _updateUser = signal<UpdateUser | null>(null);
   private _updateUser = new BehaviorSubject<any>({})
   private _token = signal<string | null>(null);
 
