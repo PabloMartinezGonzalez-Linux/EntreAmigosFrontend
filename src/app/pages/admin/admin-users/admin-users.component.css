@@ -24,3 +24,7 @@
   overflow: auto;
   max-height: 30rem !important;
 }
+
+.bar {
+  scrollbar-width: none;
+}

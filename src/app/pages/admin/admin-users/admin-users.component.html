@@ -3,9 +3,78 @@
     administrar usuarios
   </h1>
 </div>
-<div class="h-screen w-full flex justify-center items-center fondo">
+<div
+  class="min-h-screen w-full flex justify-center flex-col items-center fondo py-10"
+>
+  <div class="bg-black w-3/4 overflow-y-scroll bar mb-5 pb-5">
+    <div
+      class="flex items-center justify-center font-secondary text-2xl w-full bg-neutral-600 mb-5 p-2"
+    >
+      <h2>filtros</h2>
+    </div>
+    <div class="text-white flex items-center justify-center">
+      <form
+        (ngSubmit)="sendFilter()"
+        [formGroup]="filterForm"
+        class="flex flex-row"
+      >
+        <div class="flex flex-row">
+          <div class="flex flex-col lg:w-45 2xl:w-60 mx-2">
+            <label class="text-white">Gender</label>
+            <select
+              class="bg-gray-300 text-gray-500 h-8 px-2"
+              formControlName="gender"
+            >
+              <option value="" class="bg-neutral-500 text-white">Todos</option>
+              <option value="male" class="bg-neutral-500 text-white">
+                Male
+              </option>
+              <option value="female" class="bg-neutral-500 text-white">
+                Female
+              </option>
+            </select>
+          </div>
+          <div class="flex flex-col lg:w-45 2xl:w-60 mx-2">
+            <label class="text-white">Rol</label>
+            <select
+              class="bg-gray-300 text-gray-500 h-8 px-2"
+              formControlName="role"
+            >
+              <option value="" class="bg-neutral-500 text-white">Todos</option>
+              <option value="1" class="bg-neutral-500 text-white">Admin</option>
+              <option value="2" class="bg-neutral-500 text-white">User</option>
+            </select>
+          </div>
+          <div class="flex flex-col lg:w-45 2xl:w-60 mx-2">
+            <label class="text-white">MaxAge</label>
+            <input
+              type="number"
+              formControlName="maxAge"
+              class="bg-gray-300 text-lg text-gray-500 h-8 px-2"
+            />
+          </div>
+          <div class="flex flex-col lg:w-45 2xl:w-60 mx-2">
+            <label class="text-white">MinAge</label>
+            <input
+              type="number"
+              formControlName="minAge"
+              class="bg-gray-300 text-lg text-gray-500 h-8 px-2"
+            />
+          </div>
+          <div class="flex items-end justify-center ml-5">
+            <button
+              type="submit"
+              class="text-center cursor-pointer bg-neutral-600 p-2 hover:bg-orange-600 rounded"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
   <p-toast position="bottom-right" />
-  <div class="w-3/4 max-h-3/4 overflow-y-scroll">
+  <div class="w-3/4 h-100 2xl:h-150 overflow-y-scroll bar">
     <p-table
       [columns]="cols"
       [value]="(users$ | async) ?? []"
@@ -23,31 +92,31 @@
         <tr class="bg-black!">
           <td *ngFor="let col of columns">
             @if (col.field === "delete" && rowData.id !== 4) {
-              <button
-                class="btn bg-neutral-600! hover:bg-orange-600!"
-                (click)="deleteUser(rowData.id)"
-              >
-                Delete
-              </button>
+            <button
+              class="btn bg-neutral-600! hover:bg-orange-600!"
+              (click)="deleteUser(rowData.id)"
+            >
+              Delete
+            </button>
             } @if (col.field === "role_id") {
-              <select (change)="changeUserRole($event.target, rowData.id)">
-                <option
-                  value="1"
-                  class="bg-black"
-                  [selected]="rowData.role_id === 1"
-                >
-                  Admin
-                </option>
-                <option
-                  value="2"
-                  class="bg-black"
-                  [selected]="rowData.role_id === 2"
-                >
-                  User
-                </option>
-              </select>
+            <select (change)="changeUserRole($event.target, rowData.id)">
+              <option
+                value="1"
+                class="bg-black"
+                [selected]="rowData.role_id === 1"
+              >
+                Admin
+              </option>
+              <option
+                value="2"
+                class="bg-black"
+                [selected]="rowData.role_id === 2"
+              >
+                User
+              </option>
+            </select>
             } @else {
-             {{ rowData[col.field] }}
+            {{ rowData[col.field] }}
             }
           </td>
         </tr>

@@ -1,12 +1,13 @@
 import { ChangeDetectionStrategy, Component, inject, OnInit, OnDestroy } from '@angular/core';
 import { ImportsModule } from '../../../shared/imports';
 import { AdminService } from '../../../shared/services/admin.service';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 import { TableModule } from 'primeng/table';
 import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
 import { User } from '../../../auth/interfaces/user.interface';
+import { UserFilter } from '../interfaces/UserFiltert';
 
 @Component({
   selector: 'app-admin-users',
@@ -68,5 +69,21 @@ export class AdminUsersComponent implements OnInit{
         canSet ? this.showSuccess() : this.showError()
       })
     }
+  }
+
+  fb = inject(FormBuilder)
+
+  filterForm = this.fb.group({
+    gender: [null],
+    minAge: [null],
+    maxAge: [null],
+    role: [null]
+  })
+
+  sendFilter(){
+    const params: UserFilter = this.filterForm.value
+    this.adminService.loadAllUsers(params).subscribe((canLoad) => {
+      canLoad ? this.showSuccess() : this.showError()
+    })
   }
 }
