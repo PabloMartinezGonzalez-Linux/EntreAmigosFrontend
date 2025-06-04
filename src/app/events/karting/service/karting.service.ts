@@ -246,6 +246,11 @@ export class KartingService {
       );
   }
 
+  /**
+   * @returns Devuelve un Observable boolean:
+   * - true si la respuesta de la api es ok
+   * - false si recibe un error
+   */
   cancelRegisterUserForNextEvent(user_id: number): Observable<boolean>{
     return this._http.delete<PostNewUserResponse>(`http://localhost:3000/karting/cancelRegisterUserForNextEvent/${user_id}`).pipe(
       map(() => true),

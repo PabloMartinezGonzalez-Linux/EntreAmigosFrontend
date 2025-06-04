@@ -1,6 +1,25 @@
-<div class="h-full w-full">
-  <img src="/padel/padel.jpg" alt="" class="w-full">
-  <h1 class="mx-9 mt-9 mb-3 text-3xl graduate-regular">eventos</h1>
+<div class="h-screen w-full">
+  <img src="/padel/padel.jpg" alt="" class="w-full" />
+  <div class="flex flex-row items-center justify-between my-5 mx-10">
+    <div class="p-2 w-8/12">
+      <h1 class="text-4xl font-extrabold font-secondary">eventos de padel</h1>
+    </div>
+    <div>
+      <button
+        (click)="loadEventById()"
+        class="pi pi-send rounded p-3 mr-4 bg-neutral-500 hover:bg-neutral-700 cursor-pointer"
+      ></button>
+      <p-autocomplete
+        [(ngModel)]="value"
+        [dropdown]="true"
+        (onDropdownClick)="showAll()"
+        [suggestions]="items"
+        [optionValue]="'game_id'"
+        [optionLabel]="'game_id'"
+        [readonly]="true"
+      />
+    </div>
+  </div>
   <app-standard-table
     [tableConfig]="config"
     [data]="data"
