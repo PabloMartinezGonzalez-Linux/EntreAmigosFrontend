@@ -1,10 +1,104 @@
-<div class="h-screen w-full">
+<div class="h-full 2xl:h-180 w-full">
   <img src="/padel/padel.jpg" alt="" class="w-full" />
   <div class="flex flex-row items-center justify-between my-5 mx-10">
-    <div class="p-2 w-8/12">
+    <div class="w-full">
       <h1 class="text-4xl font-extrabold font-secondary">eventos de padel</h1>
     </div>
-    <div>
+    <div class="w-full flex justify-end">
+      <div class="card flex justify-center">
+        <p-dialog
+          header="Nuevo evento"
+          [modal]="true"
+          [(visible)]="visible"
+          [style]="{ width: '25rem' }"
+        >
+          <form
+            (submit)="onSubmit()"
+            [formGroup]="padelEvent"
+            autocomplete="off"
+          >
+            <div class="flex items-center gap-4 mb-4">
+              <label for="username" class="font-semibold w-24">Jugador 1</label>
+              <select
+                class="flex-auto border border-white rounded"
+                formControlName="player1"
+              >
+                @for (user of adminService.users(); track $index) {
+                <option [value]="user.id" class="bg-neutral-500">
+                  {{ user.name }}
+                </option>
+                }
+              </select>
+            </div>
+            <div class="flex items-center gap-4 mb-4">
+              <label for="username" class="font-semibold w-24">Jugador 2</label>
+              <select
+                class="flex-auto border border-white rounded"
+                formControlName="player2"
+              >
+                @for (user of adminService.users(); track $index) {
+                <option [value]="user.id" class="bg-neutral-500">
+                  {{ user.name }}
+                </option>
+                }
+              </select>
+            </div>
+            <div class="flex items-center gap-4 mb-4">
+              <label for="username" class="font-semibold w-24">Set 1</label>
+              <input
+                type="number"
+                min="0"
+                max="7"
+                class="flex-auto border border-white rounded"
+                formControlName="set1"
+              />
+            </div>
+            <div class="flex items-center gap-4 mb-4">
+              <label for="username" class="font-semibold w-24">Set 2</label>
+              <input
+                type="number"
+                min="0"
+                max="7"
+                class="flex-auto border border-white rounded"
+                formControlName="set2"
+              />
+            </div>
+            <div class="flex items-center gap-4 mb-4">
+              <label for="username" class="font-semibold w-24">Set 3</label>
+              <input
+                type="number"
+                min="0"
+                max="7"
+                class="flex-auto border border-white rounded"
+                formControlName="set3"
+              />
+            </div>
+            <div class="flex items-center gap-4 mb-4">
+              <label for="username" class="font-semibold w-24">Resultado</label>
+              <input
+                type="number"
+                min="0"
+                max="7"
+                class="flex-auto border border-white rounded"
+                formControlName="resultado"
+              />
+            </div>
+            <div class="flex justify-end gap-2">
+              <p-button
+                label="Cancel"
+                severity="secondary"
+                (click)="visible = false"
+              />
+              <button
+                pButton
+                type="submit"
+                label="Submit"
+              ></button>
+            </div>
+          </form>
+        </p-dialog>
+      </div>
+      <p-button (click)="showDialog()" label="Nuevo" class="mr-5" />
       <button
         (click)="loadEventById()"
         class="pi pi-send rounded p-3 mr-4 bg-neutral-500 hover:bg-neutral-700 cursor-pointer"
@@ -20,8 +114,5 @@
       />
     </div>
   </div>
-  <app-standard-table
-    [tableConfig]="config"
-    [data]="data"
-  />
+  <app-standard-table [tableConfig]="config" [data]="data" />
 </div>

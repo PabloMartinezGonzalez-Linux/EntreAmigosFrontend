@@ -101,39 +101,12 @@ export class NavbarComponent implements OnInit {
       },
       {
         icon: 'pi pi-plus',
-        label: 'Bolos',
-        items: [
-          {
-            command: () => this.router.navigate(['/sports/bowling/events']),
-            icon: 'pi pi-bars',
-            label: 'Eventos',
-          },
-          {
-            command: () => this.router.navigate(['/sports/bowling/next-event']),
-            icon: 'pi pi-calendar-clock',
-            label: 'Próximo Evento',
-          },
-          {
-            command: () =>
-              this.router.navigate(['/sports/bowling/classification']),
-            icon: 'pi pi-crown',
-            label: 'Clasificación',
-          },
-        ],
-      },
-      {
-        icon: 'pi pi-plus',
         label: 'Pádel',
         items: [
           {
             command: () => this.router.navigate(['/sports/padel/events']),
             icon: 'pi pi-bars',
             label: 'Eventos',
-          },
-          {
-            command: () => this.router.navigate(['/sports/padel/next-event']),
-            icon: 'pi pi-calendar-clock',
-            label: 'Próximo Evento',
           },
           {
             command: () =>
@@ -144,8 +117,6 @@ export class NavbarComponent implements OnInit {
         ],
       },
     ];
-
-
   }
 
   confirm(event: Event) {

@@ -1,5 +1,11 @@
 import { HttpClient } from '@angular/common/http';
-import { computed, inject, Injectable, signal, WritableSignal } from '@angular/core';
+import {
+  computed,
+  inject,
+  Injectable,
+  signal,
+  WritableSignal,
+} from '@angular/core';
 import {
   BehaviorSubject,
   catchError,
@@ -12,10 +18,12 @@ import {
 import {
   EventResponse,
   GameIDs,
+  LoadClassificationData,
   LoadDataByEventIdResponse,
   LoadEventsResponse,
   PadelClassification,
   PadelEvent,
+  PadelEventPost,
 } from '../interfaces/padel.interface';
 import { Events } from 'leaflet';
 
@@ -27,19 +35,12 @@ export class PadelService {
   private _http = inject(HttpClient);
 
   // Variables que almacenan la info del modulo de padel
-  private _classification$ = new BehaviorSubject<PadelClassification[]>([]);
+  private _classification: WritableSignal<PadelClassification[]> = signal([]);
   private _events$ = new BehaviorSubject<PadelEvent[]>([]);
   private _eventsById: WritableSignal<PadelEvent[]> = signal([]);
   private _gameIds$ = new BehaviorSubject<GameIDs[]>([]);
 
-  // Get y Set de _classification$
-  get classification$() {
-    return this._classification$.asObservable();
-  }
-
-  set classificationResponse$(classification: PadelClassification[]) {
-    this._classification$.next(classification);
-  }
+  classification = computed(() => this._classification());
 
   // Get y Set _events$
   get events$() {
@@ -50,7 +51,7 @@ export class PadelService {
     this._events$.next(events);
   }
 
-  eventById = computed(() => this._eventsById())
+  eventById = computed(() => this._eventsById());
 
   // Get y Set _eventsById$
   get gameIds$() {
@@ -81,16 +82,45 @@ export class PadelService {
   }
 
   loadDataByEventId(event_id: number): Observable<Boolean> {
-    return this._http.get<LoadDataByEventIdResponse>(`http://localhost:3000/padel/getEventsResultById/${event_id}`).pipe(
-      tap((res) => {
-        if (res.result) {
-          this._eventsById.set(res.result)
-        }
-      }),
+    return this._http
+      .get<LoadDataByEventIdResponse>(
+        `http://localhost:3000/padel/getEventsResultById/${event_id}`
+      )
+      .pipe(
+        tap((res) => {
+          if (res.result) {
+            this._eventsById.set(res.result);
+          }
+        }),
+        map(() => true),
+        catchError((error) => {
+          return of(false);
+        })
+      );
+  }
+
+  loadClassificationData(): Observable<Boolean> {
+    return this._http
+      .get<LoadClassificationData>(
+        'http://localhost:3000/padel/getClassification'
+      )
+      .pipe(
+        tap((res) => {
+          if (res.result) {
+            this._classification.set(res.result);
+          }
+        }),
+        map(() => true),
+        catchError((error) => of(false))
+      );
+  }
+
+  postEventResult(padelEvent: PadelEventPost): Observable<boolean>{
+    return this._http.post('http://localhost:3000/padel/postEventResult', padelEvent).pipe(
       map(() => true),
       catchError((error) => {
-        return of(false);
+        return of(false)
       })
-    );
+    )
   }
 }

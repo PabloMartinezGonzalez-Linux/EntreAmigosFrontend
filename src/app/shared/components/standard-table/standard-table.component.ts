@@ -10,6 +10,7 @@ import {
 import { TableConfig } from '../../interfaces/table-config';
 import { ImportsModule } from '../../imports';
 import { AuthService } from '../../../auth/service/auth.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-standard-table',
@@ -20,7 +21,7 @@ import { AuthService } from '../../../auth/service/auth.service';
 })
 export class StandardTableComponent implements OnInit {
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   authService = inject(AuthService)
 
@@ -40,9 +41,14 @@ export class StandardTableComponent implements OnInit {
 
   isFirst(row: any, data: any) {
     const dataArray = isSignal(data) ? data() : data;
+    const currentUrl = this.router.url
 
     if (!dataArray || !Array.isArray(dataArray) || dataArray.length === 0) {
       return 'standard';
+    }
+
+    if (currentUrl === '/sports/padel/events') {
+      return this.checkResultRow(row, dataArray) ? 'first' : 'standard'
     }
 
     return this.checkFisrtRow(row, dataArray) ? 'first' : 'standard';
@@ -55,5 +61,14 @@ export class StandardTableComponent implements OnInit {
       return firstUserId === currentUserId;
     }
     return false;
+  }
+
+  checkResultRow(row: any, data: any){
+    if (data && data[0] && data[0].resultado !== undefined) {
+      const firstRow = data[0].resultado;
+      const currentRow = row.resultado;
+      return firstRow === currentRow;
+    }
+    return false
   }
 }

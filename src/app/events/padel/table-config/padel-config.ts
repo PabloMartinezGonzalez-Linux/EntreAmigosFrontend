@@ -3,12 +3,12 @@ import { TableConfig } from "../../../shared/interfaces/table-config";
 export const padelConfig: TableConfig = {
   columns: [
     {
-      code: "player1",
+      code: "player1_name",
       label: "Jugador-1",
       type: "string"
     },
      {
-      code: "player2",
+      code: "player2_name",
       label: "Jugador-2",
       type: "string"
     },
@@ -32,6 +32,11 @@ export const padelConfig: TableConfig = {
       label: "Resultado",
       type: "number"
     },
+    {
+      code: "points",
+      label: "Puntos",
+      type: "number"
+    },
   ],
   isClassification: true
 }
@@ -39,17 +44,17 @@ export const padelConfig: TableConfig = {
 export const classificationPadelConfig: TableConfig = {
   columns: [
     {
-      code: "posicion",
+      code: "position",
       label: "Pos",
       type: "number"
     },
     {
-      code: "puntos",
+      code: "points",
       label: "Ptos",
       type: "number"
     },
     {
-      code: "jugador",
+      code: "user_name",
       label: "Jugador",
       type: "string"
     },

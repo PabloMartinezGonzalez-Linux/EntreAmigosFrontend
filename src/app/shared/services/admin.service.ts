@@ -50,8 +50,6 @@ export class AdminService {
       }
     }
 
-    console.log(params)
-
     return this._http
       .get<LoadAllUsers>('http://localhost:3000/admin/getAllUsers', {
         params: httpParams,

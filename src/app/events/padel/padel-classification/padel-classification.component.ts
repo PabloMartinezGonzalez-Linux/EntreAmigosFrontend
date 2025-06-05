@@ -1,10 +1,11 @@
 import { PadelEvent } from './../interfaces/padel.interface';
 import { PadelClassification } from '../interfaces/padel.interface';
-import { dataPadelClassification } from './../table-config/mockup';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { TableConfig } from '../../../shared/interfaces/table-config';
 import { classificationPadelConfig } from '../table-config/padel-config';
 import { StandardTableComponent } from '../../../shared/components/standard-table/standard-table.component';
+import { PadelService } from '../service/padel.service';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-padel-classification',
@@ -16,6 +17,14 @@ import { StandardTableComponent } from '../../../shared/components/standard-tabl
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PadelClassificationComponent {
-  data: PadelClassification[] = dataPadelClassification
+
+  constructor(){
+    this.padelService.loadClassificationData().subscribe()
+  }
+
+  padelService = inject(PadelService)
+
+  data = this.padelService.classification
   config: TableConfig = classificationPadelConfig
+
 }
