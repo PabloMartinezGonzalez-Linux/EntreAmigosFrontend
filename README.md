@@ -41,6 +41,7 @@ yarn install
 
 ## Estructura del proyecto
 
+```bash
 EntreAmigosFrontend/
 ├── .vscode/                  # Configuración de editor
 ├── public/                   # Archivos estáticos (index.html, favicon…)
@@ -66,6 +67,7 @@ EntreAmigosFrontend/
 ├── package.json
 ├── tsconfig.json
 └── README.md                
+```
 
 ## 🏗️ Arquitectura y Flujo de Datos
 
