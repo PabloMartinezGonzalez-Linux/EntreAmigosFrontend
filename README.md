@@ -121,6 +121,7 @@ npm install
 # o
 yarn install
 ```
+```bash
 ## Estructura del proyecto  
 .
 ├── src/
@@ -159,4 +160,4 @@ yarn install
 ├── jest.config.js                    # configuración Jest
 ├── package.json
 └── README.md
-
+```
