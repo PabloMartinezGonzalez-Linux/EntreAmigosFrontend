@@ -1,4 +1,4 @@
-<div class="h-full 2xl:h-180 w-full">
+<div class="h-full 2xl:h-150 w-full">
   <img src="/padel/padel.jpg" alt="" class="w-full" />
   <div class="flex flex-row items-center justify-between my-5 mx-10">
     <div class="w-full">
@@ -98,7 +98,9 @@
           </form>
         </p-dialog>
       </div>
-      <p-button (click)="showDialog()" label="Nuevo" class="mr-5" />
+      @if (authService.user()?.role_id === 1) {
+        <p-button (click)="showDialog()" label="Nuevo" class="mr-5" />
+      }
       <button
         (click)="loadEventById()"
         class="pi pi-send rounded p-3 mr-4 bg-neutral-500 hover:bg-neutral-700 cursor-pointer"
@@ -106,8 +108,8 @@
       <p-autocomplete
         [(ngModel)]="value"
         [dropdown]="true"
-        (onDropdownClick)="showAll()"
         [suggestions]="items"
+        (completeMethod)="showAll()"
         [optionValue]="'game_id'"
         [optionLabel]="'game_id'"
         [readonly]="true"

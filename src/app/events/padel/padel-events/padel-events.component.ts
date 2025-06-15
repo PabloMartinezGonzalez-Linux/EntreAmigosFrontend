@@ -36,6 +36,7 @@ export class PadelEventsComponent {
   adminService = inject(AdminService);
   fb = inject(FormBuilder)
   padelEventConfig = PadelEventConfig
+  authService = inject(AuthService)
 
   config = padelConfig;
   data = this.padelService.eventById;
@@ -61,7 +62,7 @@ export class PadelEventsComponent {
     this.adminService.loadAllUsers().subscribe()
   }
 
-  // padelEvent = this.fb.group<PadelEventPost>({
+  // padelEvent = this.fb.group({
   //   [this.padelEventConfig.JUGADOR1]: [''],
   //   [this.padelEventConfig.JUGADOR2]: [''],
   //   [this.padelEventConfig.SET1]: [''],

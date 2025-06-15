@@ -25,6 +25,7 @@ export class StandardTableComponent implements OnInit {
 
   authService = inject(AuthService)
 
+  // TODO: Config table
   @Input() order: boolean = false
   @Input() tableConfig: TableConfig = { columns: [] };
   @Input() data!: Signal<any[]> | any[];
